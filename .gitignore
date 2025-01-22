@@ -39,5 +39,8 @@ next-env.d.ts
 *.swp
 *.swo
 
-# ignore package-lock.json 
+# ignore package-lock.json
 package-lock.json
+
+# ignore .bolt
+.bolt

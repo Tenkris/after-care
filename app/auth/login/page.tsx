@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -16,6 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { HeartPulse, Scale } from 'lucide-react';
 
 export default function LoginPage() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const defaultType = searchParams.get('type') || 'victim';
   
@@ -24,8 +25,12 @@ export default function LoginPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement login logic
-    console.log('Login:', { email, password });
+    // Mock login - just redirect based on type
+    if (defaultType === 'victim') {
+      router.push('/victim/chat');
+    } else {
+      router.push('/lawyer/dashboard');
+    }
   };
 
   return (
@@ -60,10 +65,9 @@ export default function LoginPage() {
                   <Input
                     id="victim-email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="patient@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                   />
                 </div>
                 <div className="space-y-2">
@@ -73,7 +77,6 @@ export default function LoginPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
                   />
                 </div>
                 <Button type="submit" className="w-full">
@@ -92,7 +95,6 @@ export default function LoginPage() {
                     placeholder="lawyer@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                   />
                 </div>
                 <div className="space-y-2">
@@ -102,7 +104,6 @@ export default function LoginPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
                   />
                 </div>
                 <Button type="submit" className="w-full">
