@@ -1,32 +1,43 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { HeartPulse, Menu, UserCircle2 } from 'lucide-react';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { HeartPulse, Menu, UserCircle2 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
+} from "@/components/ui/sheet";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSeparator,
-} from '@/components/ui/dropdown-menu';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 const navigation = [
-  { name: 'Home', href: '/' },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
 ];
 
 export function Header() {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  // Only render after client-side hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // or a simple loading state
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -55,27 +66,20 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      'text-sm font-medium transition-colors hover:text-primary px-2 py-1.5 rounded-md',
+                      "text-sm font-medium transition-colors hover:text-primary px-2 py-1.5 rounded-md",
                       pathname === item.href
-                        ? 'bg-primary/10 text-primary'
-                        : 'text-muted-foreground'
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground"
                     )}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <DropdownMenuSeparator />
                 <Link
-                  href="/auth/login?type=victim"
+                  href="/auth/login"
                   className="text-sm font-medium text-muted-foreground hover:text-primary px-2 py-1.5"
                 >
-                  Login as Patient
-                </Link>
-                <Link
-                  href="/auth/login?type=lawyer"
-                  className="text-sm font-medium text-muted-foreground hover:text-primary px-2 py-1.5"
-                >
-                  Login as Lawyer
+                  Login
                 </Link>
               </nav>
             </SheetContent>
@@ -94,10 +98,10 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'text-sm font-medium transition-colors hover:text-primary',
+                  "text-sm font-medium transition-colors hover:text-primary",
                   pathname === item.href
-                    ? 'text-primary'
-                    : 'text-muted-foreground'
+                    ? "text-primary"
+                    : "text-muted-foreground"
                 )}
               >
                 {item.name}
@@ -108,7 +112,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          
+
           {/* Desktop Login Dropdown */}
           <div className="hidden md:block">
             <DropdownMenu>
@@ -120,23 +124,18 @@ export function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-40">
                 <DropdownMenuItem asChild>
-                  <Link href="/auth/login?type=victim">
-                    Login as Patient
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/auth/login?type=lawyer">
-                    Login as Lawyer
-                  </Link>
+                  <Link href="/auth/login">Login</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
 
           {/* Mobile Login Button */}
-          <Button variant="outline" size="icon" className="md:hidden">
-            <UserCircle2 className="h-5 w-5" />
-          </Button>
+          <Link href="/auth/login">
+            <Button variant="outline" size="icon" className="md:hidden">
+              <UserCircle2 className="h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </div>
     </header>
