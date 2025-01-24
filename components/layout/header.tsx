@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HeartPulse, Menu, UserCircle2 } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { HeartPulse, Menu, Moon, Sun, UserCircle2 } from "lucide-react";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -12,12 +12,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
@@ -29,6 +23,7 @@ const navigation = [
 export function Header() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   // Only render after client-side hydration
   useEffect(() => {
@@ -36,7 +31,7 @@ export function Header() {
   }, []);
 
   if (!mounted) {
-    return null; // or a simple loading state
+    return null;
   }
 
   return (
@@ -111,31 +106,27 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
+          {/* Theme Toggle */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
+            <span className="sr-only">Toggle theme</span>
+          </Button>
 
-          {/* Desktop Login Dropdown */}
-          <div className="hidden md:block">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="gap-2">
-                  <UserCircle2 className="h-4 w-4" />
-                  <span>Login</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-40">
-                <DropdownMenuItem asChild>
-                  <Link href="/auth/login">Login</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-
-          {/* Mobile Login Button */}
-          <Link href="/auth/login">
-            <Button variant="outline" size="icon" className="md:hidden">
-              <UserCircle2 className="h-5 w-5" />
-            </Button>
-          </Link>
+          {/* Login Button */}
+          <Button asChild variant="outline" className="gap-2">
+            <Link href="/auth/login">
+              <UserCircle2 className="h-4 w-4" />
+              <span className="hidden md:inline">Login</span>
+            </Link>
+          </Button>
         </div>
       </div>
     </header>
