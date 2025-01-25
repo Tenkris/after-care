@@ -30,18 +30,25 @@ export function Header() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
+  // Render the header with fallback values instead of returning null
+  const themeIcon = mounted ? (
+    theme === "light" ? (
+      <Moon className="h-5 w-5" />
+    ) : (
+      <Sun className="h-5 w-5" />
+    )
+  ) : (
+    <Moon className="h-5 w-5" />
+  );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center justify-between px-4 md:h-16">
-        <div className="flex gap-2 md:gap-6 items-center">
+      <div className="container flex h-16 items-center justify-between px-4 sm:px-8 lg:px-16">
+        <div className="flex gap-3 md:gap-8 items-center">
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="md:hidden -ml-2">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
@@ -81,13 +88,13 @@ export function Header() {
           </Sheet>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-3">
             <HeartPulse className="h-5 w-5 md:h-6 md:w-6 text-primary" />
             <span className="font-bold text-sm md:text-base">AfterCare</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-6">
+          <nav className="hidden md:flex gap-8">
             {navigation.map((item) => (
               <Link
                 key={item.href}
@@ -105,18 +112,16 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3 md:gap-4">
           {/* Theme Toggle */}
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            onClick={() =>
+              mounted && setTheme(theme === "light" ? "dark" : "light")
+            }
           >
-            {theme === "light" ? (
-              <Moon className="h-5 w-5" />
-            ) : (
-              <Sun className="h-5 w-5" />
-            )}
+            {themeIcon}
             <span className="sr-only">Toggle theme</span>
           </Button>
 
