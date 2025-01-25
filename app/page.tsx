@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MessageSquare, Scale, FileText, HeartPulse } from 'lucide-react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MessageSquare, Scale, FileText, HeartPulse } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -14,9 +14,12 @@ export default function Home() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 text-transparent bg-clip-text">
             AfterCare
           </h1>
-          <p className="text-xl md:text-2xl font-semibold mb-2">Medical Malpractice Support</p>
+          <p className="text-xl md:text-2xl font-semibold mb-2">
+            Medical Malpractice Support
+          </p>
           <p className="text-base md:text-lg text-muted-foreground mb-8">
-            Supporting patients with AI-powered case analysis and expert legal guidance
+            Supporting patients with AI-powered case analysis and expert legal
+            guidance
           </p>
         </div>
 
@@ -75,16 +78,21 @@ export default function Home() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-semibold mb-6 text-center">How AfterCare Works</h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-6 text-center">
+            How AfterCare Works
+          </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardContent className="pt-6">
                 <div className="rounded-full bg-primary/10 w-12 h-12 flex items-center justify-center mb-4 mx-auto">
                   <MessageSquare className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-2 text-center">Share Your Experience</h3>
+                <h3 className="font-semibold mb-2 text-center">
+                  Share Your Experience
+                </h3>
                 <p className="text-sm text-muted-foreground text-center">
-                  Tell us about your medical experience in a safe, confidential environment
+                  Tell us about your medical experience in a safe, confidential
+                  environment
                 </p>
               </CardContent>
             </Card>
@@ -94,9 +102,11 @@ export default function Home() {
                 <div className="rounded-full bg-primary/10 w-12 h-12 flex items-center justify-center mb-4 mx-auto">
                   <FileText className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-2 text-center">Get Expert Analysis</h3>
+                <h3 className="font-semibold mb-2 text-center">
+                  Get Expert Analysis
+                </h3>
                 <p className="text-sm text-muted-foreground text-center">
-                  Receive AI-powered analysis of your case's potential
+                  Receive AI-powered analysis of your case&apos;s potential
                 </p>
               </CardContent>
             </Card>
@@ -106,7 +116,9 @@ export default function Home() {
                 <div className="rounded-full bg-primary/10 w-12 h-12 flex items-center justify-center mb-4 mx-auto">
                   <Scale className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-2 text-center">Connect with Lawyers</h3>
+                <h3 className="font-semibold mb-2 text-center">
+                  Connect with Lawyers
+                </h3>
                 <p className="text-sm text-muted-foreground text-center">
                   Match with experienced medical malpractice attorneys
                 </p>

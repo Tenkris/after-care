@@ -1,35 +1,35 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { HeartPulse, Scale } from 'lucide-react';
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { HeartPulse, Scale } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const defaultType = searchParams.get('type') || 'victim';
-  
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const defaultType = searchParams.get("type") || "victim";
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Mock login - just redirect based on type
-    if (defaultType === 'victim') {
-      router.push('/victim/chat');
+    if (defaultType === "victim") {
+      router.push("/victim/chat");
     } else {
-      router.push('/lawyer/dashboard');
+      router.push("/lawyer/dashboard");
     }
   };
 
@@ -40,7 +40,9 @@ export default function LoginPage() {
           <div className="flex justify-center mb-2">
             <HeartPulse className="h-8 w-8 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-bold text-center">Welcome to AfterCare</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center">
+            Welcome to AfterCare
+          </CardTitle>
           <CardDescription className="text-center">
             Choose your account type to continue
           </CardDescription>
@@ -57,7 +59,7 @@ export default function LoginPage() {
                 Lawyer
               </TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="victim">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
@@ -84,7 +86,7 @@ export default function LoginPage() {
                 </Button>
               </form>
             </TabsContent>
-            
+
             <TabsContent value="lawyer">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
@@ -114,7 +116,7 @@ export default function LoginPage() {
           </Tabs>
 
           <div className="mt-4 text-center text-sm text-muted-foreground">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{" "}
             <Button variant="link" className="p-0 h-auto font-normal">
               Register here
             </Button>
