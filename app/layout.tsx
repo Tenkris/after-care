@@ -1,15 +1,19 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Header } from '@/components/layout/header';
-import { Toaster } from '@/components/ui/toaster';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Header } from "@/components/layout/header";
+import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'AfterCare - Medical Malpractice Support',
-  description: 'Supporting patients with medical malpractice cases through AI-powered analysis and legal expertise',
+  title: "AfterCare - Medical Malpractice Support",
+  description:
+    "Supporting patients with medical malpractice cases through AI-powered analysis and legal expertise",
+  icons: {
+    icon: "/icon/logo-icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -28,9 +32,7 @@ export default function RootLayout({
         >
           <div className="relative min-h-screen flex flex-col">
             <Header />
-            <main className="flex-1">
-              {children}
-            </main>
+            <main className="flex-1">{children}</main>
           </div>
           <Toaster />
         </ThemeProvider>
