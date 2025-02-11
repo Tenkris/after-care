@@ -74,25 +74,38 @@ export default function AboutPage() {
               top faculties
             </p>
           </div>
-
-          <TabsList className="flex flex-wrap justify-center">
-            <TabsTrigger value="medical" className="gap-2">
-              <Stethoscope className="h-4 w-4" />
-              Medical
-            </TabsTrigger>
-            <TabsTrigger value="legal" className="gap-2">
-              <Scale className="h-4 w-4" />
-              Legal
-            </TabsTrigger>
-            <TabsTrigger value="tech" className="gap-2">
-              <Code className="h-4 w-4" />
-              Engineering
-            </TabsTrigger>
-            <TabsTrigger value="business" className="gap-2">
-              <LineChart className="h-4 w-4" />
-              Business
-            </TabsTrigger>
-          </TabsList>
+          <div className="relative w-full overflow-auto">
+            <TabsList className="flex w-full whitespace-nowrap overflow-x-auto md:justify-center justify-start px-1 no-scrollbar">
+              <TabsTrigger
+                value="medical"
+                className="min-w-[120px] md:min-w-[140px] gap-2"
+              >
+                <Stethoscope className="h-4 w-4" />
+                Medical
+              </TabsTrigger>
+              <TabsTrigger
+                value="legal"
+                className="min-w-[120px] md:min-w-[140px] gap-2"
+              >
+                <Scale className="h-4 w-4" />
+                Legal
+              </TabsTrigger>
+              <TabsTrigger
+                value="tech"
+                className="min-w-[120px] md:min-w-[140px] gap-2"
+              >
+                <Code className="h-4 w-4" />
+                Engineering
+              </TabsTrigger>
+              <TabsTrigger
+                value="business"
+                className="min-w-[120px] md:min-w-[140px] gap-2"
+              >
+                <LineChart className="h-4 w-4" />
+                Business
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
           <TabsContent value="medical">
             <Card>
