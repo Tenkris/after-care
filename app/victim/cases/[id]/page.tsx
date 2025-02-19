@@ -5,31 +5,45 @@ import type { CaseData } from "./case-detail-client";
 const mockCases: CaseData[] = [
   {
     id: "1",
-    title: "Surgical Complication Case",
+    title: "ผ่าตัดไส้ติ่งโดยไม่ได้รับการยินยอม",
     date: "2024-03-15",
     status: "reviewing",
     flag: "red",
     description:
-      "Post-surgical complications following knee replacement surgery.",
-    details: `Patient underwent knee replacement surgery on January 15, 2024. Following the procedure, 
-      severe complications arose including infection and limited mobility. Multiple follow-up surgeries 
-      were required to address these issues.`,
+      "แพทย์ทำการผ่าตัดไส้ติ่งโดยไม่ได้แจ้งและขอความยินยอมก่อน ส่งผลให้เกิดภาวะแทรกซ้อนหลังผ่าตัด",
+    details: `คนไข้เข้ารับการผ่าตัดไส้ติ่งเมื่อวันที่ 15 มกราคม 2567 โดยไม่ได้รับการแจ้งและขอความยินยอมก่อน 
+      หลังการผ่าตัดเกิดภาวะแทรกซ้อนที่รุนแรง ต้องเข้ารับการรักษาต่อเนื่อง 
+      
+      ประเด็นทางกฎหมายที่เกี่ยวข้อง:
+      1. การละเมิดสิทธิผู้ป่วยในการให้ความยินยอม (Informed Consent)
+      2. ความบกพร่องในการรักษาพยาบาล (Medical Negligence)
+      3. การละเมิดจริยธรรมทางการแพทย์`,
     lawyerInterest: 3,
-    lastUpdate: "2 hours ago",
+    lastUpdate: "2024-03-18",
     timeline: [
       {
         date: "2024-03-15",
-        event: "Case submitted",
+        event: "ยื่นเรื่องร้องเรียน",
         type: "submission",
       },
       {
         date: "2024-03-15",
-        event: "AI analysis completed - Red flag assigned",
+        event: "AI วิเคราะห์คดี - ระดับความรุนแรงสูง",
         type: "analysis",
       },
       {
         date: "2024-03-16",
-        event: "First lawyer review received",
+        event: "อัพโหลดเอกสารทางการแพทย์",
+        type: "document",
+      },
+      {
+        date: "2024-03-17",
+        event: "ตรวจสอบเอกสารเพิ่มเติม",
+        type: "document",
+      },
+      {
+        date: "2024-03-18",
+        event: "ทนายความแสดงความสนใจรับคดี",
         type: "review",
       },
     ],
@@ -48,32 +62,11 @@ const mockCases: CaseData[] = [
         experience: "8 years",
         status: "Interested",
       },
-    ],
-  },
-  {
-    id: "2",
-    title: "Medication Error Case",
-    date: "2024-03-14",
-    status: "pending",
-    flag: "yellow",
-    description: "Incorrect medication dosage administered in hospital.",
-    details:
-      "Patient received incorrect medication dosage during hospital stay, leading to adverse reactions.",
-    lawyerInterest: 2,
-    lastUpdate: "1 day ago",
-    timeline: [
-      {
-        date: "2024-03-14",
-        event: "Case submitted",
-        type: "submission",
-      },
-    ],
-    interestedLawyers: [
       {
         id: 3,
-        name: "David Smith",
-        specialty: "Medical Malpractice",
-        experience: "10 years",
+        name: "สมศักดิ์ รักความยุติธรรม",
+        specialty: "Medical Negligence",
+        experience: "12 years",
         status: "Interested",
       },
     ],
