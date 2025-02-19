@@ -31,7 +31,7 @@ export const myCases: VictimCase[] = [
     dateSubmitted: "2024-03-15",
     lastUpdate: "2024-03-18",
     type: "Informed Consent & Surgical Error",
-    interestedLawyers: 3,
+    interestedLawyers: 2,
     nextSteps: [
       "รวบรวมเวชระเบียน (Medical Records)",
       "เตรียมใบรายงานการผ่าตัด (Operation Note)",

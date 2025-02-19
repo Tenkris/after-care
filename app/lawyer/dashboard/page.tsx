@@ -95,36 +95,6 @@ export default function LawyerDashboard() {
           <Card>
             <CardContent className="p-4 md:p-6">
               <div className="flex items-center gap-2">
-                <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-green-500 shrink-0" />
-                <div className="min-w-0">
-                  <p className="text-xs md:text-sm text-muted-foreground truncate">
-                    Success Rate
-                  </p>
-                  <p className="text-lg md:text-2xl font-bold">
-                    {analyticsSummary.successRate}%
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-4 md:p-6">
-              <div className="flex items-center gap-2">
-                <DollarSign className="h-4 w-4 md:h-5 md:w-5 text-yellow-500 shrink-0" />
-                <div className="min-w-0">
-                  <p className="text-xs md:text-sm text-muted-foreground truncate">
-                    Avg. Settlement
-                  </p>
-                  <p className="text-lg md:text-2xl font-bold">
-                    {analyticsSummary.averageSettlement}
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-4 md:p-6">
-              <div className="flex items-center gap-2">
                 <Award className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0" />
                 <div className="min-w-0">
                   <p className="text-xs md:text-sm text-muted-foreground truncate">

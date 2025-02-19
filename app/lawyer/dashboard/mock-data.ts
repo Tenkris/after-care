@@ -150,7 +150,5 @@ export const timelines: Timeline[] = [
 
 export const analyticsSummary = {
   totalCases: 25,
-  successRate: 85,
-  averageSettlement: "฿850,000",
   recentWins: 12,
 };
