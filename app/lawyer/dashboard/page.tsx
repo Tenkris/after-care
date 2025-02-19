@@ -16,11 +16,15 @@ import {
   Award,
   MapPin,
   User,
+  MessageSquareText,
 } from "lucide-react";
 import Link from "next/link";
 import { newCases, activeCases, analyticsSummary } from "./mock-data";
+import { useRouter } from "next/navigation";
 
 export default function LawyerDashboard() {
+  const router = useRouter();
+
   const getSeverityIcon = (severity: string) => {
     switch (severity) {
       case "high":
@@ -47,12 +51,24 @@ export default function LawyerDashboard() {
     }
   };
 
+  const handleAIChatClick = () => {
+    router.push("/lawyer/chat");
+  };
+
   return (
     <div className="container mx-auto p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <h1 className="text-xl md:text-2xl font-bold">Lawyer Dashboard</h1>
           <div className="flex gap-2 w-full sm:w-auto">
+            <Button
+              className="flex-1 sm:flex-none"
+              variant="outline"
+              onClick={handleAIChatClick}
+            >
+              <MessageSquareText className="h-4 w-4 mr-2" />
+              AI Assistant
+            </Button>
             <Button className="flex-1 sm:flex-none" variant="outline">
               Filter Cases
             </Button>
