@@ -10,6 +10,43 @@ interface ChatMessageProps {
 }
 
 export function ChatMessage({ message }: ChatMessageProps) {
+  // Format message content by preserving line breaks and handling lists
+  const formatContent = (content: string) => {
+    return content.split("\n").map((line, index) => {
+      // Skip empty lines
+      if (line.trim() === "") {
+        return <br key={index} />;
+      }
+
+      // Check if line starts with emoji (for section headers)
+      const hasEmoji = /^[📌📜📄💡✨]/.test(line);
+
+      // Check if line is a list item
+      const isList = line.trim().startsWith("- ");
+
+      if (hasEmoji) {
+        return (
+          <div key={index} className="font-medium text-base mt-2 mb-1">
+            {line}
+          </div>
+        );
+      } else if (isList) {
+        return (
+          <div key={index} className="flex gap-2 ml-2 my-0.5">
+            <span>•</span>
+            <span>{line.substring(2)}</span>
+          </div>
+        );
+      }
+
+      return (
+        <div key={index} className="my-0.5">
+          {line}
+        </div>
+      );
+    });
+  };
+
   return (
     <div
       className={cn(
@@ -42,7 +79,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
             : "bg-muted rounded-tl-none"
         )}
       >
-        {message.content}
+        {formatContent(message.content)}
       </div>
     </div>
   );

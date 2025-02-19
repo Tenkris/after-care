@@ -17,9 +17,33 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ChatMessage } from "@/components/chat/chat-message";
 
-const INITIAL_MESSAGE = `Hello! I'm the AfterCare Assistant, here to help evaluate your medical malpractice case. I'll guide you through the process and help determine if you have a potential case.
+const INITIAL_MESSAGE = `สวัสดีค่ะ ฉันคือ AfterCare แชทบอทช่วยให้คำปรึกษาด้าน Medical Malpractice คุณสามารถเล่าเหตุการณ์ที่เกิดขึ้นได้เลยค่ะ`;
 
-To get started, please describe your medical situation and any concerns you have about the care you received.`;
+const MOCK_RESPONSES = [
+  `เข้าใจค่ะ กรณีนี้อาจเกี่ยวข้องกับสิทธิของผู้ป่วยเรื่องการให้ข้อมูลก่อนการรักษา (Informed Consent) และข้อบกพร่องทางการแพทย์ (Medical Negligence)
+
+📌 กรณีที่คล้ายกัน:
+- คดีผ่าตัดในช่องท้องที่ไม่ได้แจ้ง Informed Consent ก่อนการรักษา
+- คดีที่แพทย์ตัดอวัยวะเพิ่มเติมโดยไม่ได้รับอนุญาต
+
+📜 กฎหมายที่เกี่ยวข้อง:
+- ประมวลกฎหมายแพ่งและพาณิชย์ มาตรา 420: การกระทำละเมิดที่ทำให้เกิดความเสียหาย
+- พระราชบัญญัติวิชาชีพเวชกรรม พ.ศ. 2525 มาตรา 31: แพทย์ต้องรักษาจริยธรรมทางการแพทย์
+- ประมวลกฎหมายอาญา มาตรา 269: การบันทึกข้อมูลทางการแพทย์เป็นเท็จ`,
+
+  `คุณสามารถรวบรวมเอกสารสำคัญเพื่อใช้เป็นหลักฐานค่ะ
+
+📄 เอกสารที่ควรเตรียม:
+- เวชระเบียน (Medical Records)
+- ผลตรวจทางห้องปฏิบัติการ เช่น ผลเลือด ภาพถ่ายรังสี
+- ใบรายงานการผ่าตัด (Operation Note)
+- บันทึกการพยาบาล
+- ใบเสร็จค่ารักษาพยาบาล
+
+หากต้องการดำเนินการทางกฎหมาย ฉันสามารถช่วยเชื่อมโยงคุณกับทนายที่เชี่ยวชาญด้านนี้ผ่านแพลตฟอร์มของเราได้ค่ะ สนใจไหมคะ?`,
+
+  `ได้เลยค่ะ ฉันจะส่งรายชื่อทนายที่มีประสบการณ์ด้าน Medical Malpractice ให้คุณเลือกผ่านแอปพลิเคชันของเรา ขอบคุณที่ใช้บริการ AfterCare นะคะ 😊`,
+];
 
 type FlagAnalysis = {
   flag: "red" | "yellow" | "green";
@@ -36,33 +60,33 @@ const analyzeCaseStrength = (
     .join(" ");
 
   if (
-    combinedContent.includes("death") ||
-    combinedContent.includes("permanent") ||
-    combinedContent.includes("severe")
+    combinedContent.includes("เสียชีวิต") ||
+    combinedContent.includes("ถาวร") ||
+    combinedContent.includes("รุนแรง")
   ) {
     return {
       flag: "red",
-      title: "Strong Case Indicated",
+      title: "พบข้อบ่งชี้ที่รุนแรง",
       description:
-        "Based on the information provided, your case shows strong indicators of medical malpractice. We recommend immediate legal consultation.",
+        "จากข้อมูลที่ได้รับ กรณีของคุณมีข้อบ่งชี้ที่ชัดเจนของการละเมิดทางการแพทย์ แนะนำให้ปรึกษาทนายความโดยเร็ว",
     };
   } else if (
-    combinedContent.includes("pain") ||
-    combinedContent.includes("error") ||
-    combinedContent.includes("mistake")
+    combinedContent.includes("ปวด") ||
+    combinedContent.includes("ผิดพลาด") ||
+    combinedContent.includes("ไม่แจ้ง")
   ) {
     return {
       flag: "yellow",
-      title: "Potential Case - Further Review Needed",
+      title: "มีความเป็นไปได้ - ต้องตรวจสอบเพิ่มเติม",
       description:
-        "Your case shows potential merit but requires additional review. We recommend providing more details or consulting with a lawyer.",
+        "กรณีของคุณมีความเป็นไปได้ แต่ต้องการข้อมูลเพิ่มเติม แนะนำให้ปรึกษาผู้เชี่ยวชาญเพื่อประเมินรายละเอียด",
     };
   } else {
     return {
       flag: "green",
-      title: "Limited Case Indicators",
+      title: "ข้อบ่งชี้ไม่ชัดเจน",
       description:
-        "Based on current information, the case may face challenges. Consider providing more details or consulting with a lawyer for a thorough review.",
+        "จากข้อมูลปัจจุบัน อาจมีข้อจำกัดในการดำเนินคดี กรุณาให้ข้อมูลเพิ่มเติมหรือปรึกษาทนายความเพื่อการประเมินที่ละเอียดขึ้น",
     };
   }
 };
@@ -103,8 +127,7 @@ export default function VictimChat() {
 
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
 
-    const userMessageCount =
-      messages.filter((m) => m.role === "user").length + 1;
+    const userMessageCount = messages.filter((m) => m.role === "user").length;
 
     setTimeout(() => {
       setMessages((prev) => [
@@ -112,11 +135,13 @@ export default function VictimChat() {
         {
           role: "assistant",
           content:
-            "I understand your situation. Let me analyze the details you've provided. Could you please provide more specific information about when this medical incident occurred and what specific complications or issues arose from it?",
+            MOCK_RESPONSES[
+              Math.min(userMessageCount, MOCK_RESPONSES.length - 1)
+            ],
         },
       ]);
 
-      if (userMessageCount === 5) {
+      if (userMessageCount === 2) {
         const result = analyzeCaseStrength([
           ...messages,
           { role: "user", content: userMessage },
