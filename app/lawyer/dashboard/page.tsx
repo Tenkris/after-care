@@ -1,22 +1,33 @@
-'use client';
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { AlertTriangle, CheckCircle2, XCircle, Clock, Scale, TrendingUp, DollarSign, Award, MapPin, User } from 'lucide-react';
-import Link from 'next/link';
-import { newCases, activeCases, analyticsSummary } from './mock-data';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  AlertTriangle,
+  CheckCircle2,
+  XCircle,
+  Clock,
+  Scale,
+  TrendingUp,
+  DollarSign,
+  Award,
+  MapPin,
+  User,
+} from "lucide-react";
+import Link from "next/link";
+import { newCases, activeCases, analyticsSummary } from "./mock-data";
 
 export default function LawyerDashboard() {
   const getSeverityIcon = (severity: string) => {
     switch (severity) {
-      case 'high':
+      case "high":
         return <XCircle className="h-4 w-4 text-destructive" />;
-      case 'medium':
+      case "medium":
         return <AlertTriangle className="h-4 w-4 text-yellow-500" />;
-      case 'low':
+      case "low":
         return <CheckCircle2 className="h-4 w-4 text-green-500" />;
       default:
         return null;
@@ -25,11 +36,11 @@ export default function LawyerDashboard() {
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case 'new':
+      case "new":
         return <Badge variant="secondary">New</Badge>;
-      case 'in_progress':
+      case "in_progress":
         return <Badge className="bg-blue-500">In Progress</Badge>;
-      case 'closed':
+      case "closed":
         return <Badge variant="outline">Closed</Badge>;
       default:
         return null;
@@ -42,7 +53,9 @@ export default function LawyerDashboard() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <h1 className="text-xl md:text-2xl font-bold">Lawyer Dashboard</h1>
           <div className="flex gap-2 w-full sm:w-auto">
-            <Button className="flex-1 sm:flex-none" variant="outline">Filter Cases</Button>
+            <Button className="flex-1 sm:flex-none" variant="outline">
+              Filter Cases
+            </Button>
             <Button className="flex-1 sm:flex-none">New Search</Button>
           </div>
         </div>
@@ -53,8 +66,12 @@ export default function LawyerDashboard() {
               <div className="flex items-center gap-2">
                 <Scale className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0" />
                 <div className="min-w-0">
-                  <p className="text-xs md:text-sm text-muted-foreground truncate">Total Cases</p>
-                  <p className="text-lg md:text-2xl font-bold">{analyticsSummary.totalCases}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground truncate">
+                    Total Cases
+                  </p>
+                  <p className="text-lg md:text-2xl font-bold">
+                    {analyticsSummary.totalCases}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -64,8 +81,12 @@ export default function LawyerDashboard() {
               <div className="flex items-center gap-2">
                 <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-green-500 shrink-0" />
                 <div className="min-w-0">
-                  <p className="text-xs md:text-sm text-muted-foreground truncate">Success Rate</p>
-                  <p className="text-lg md:text-2xl font-bold">{analyticsSummary.successRate}%</p>
+                  <p className="text-xs md:text-sm text-muted-foreground truncate">
+                    Success Rate
+                  </p>
+                  <p className="text-lg md:text-2xl font-bold">
+                    {analyticsSummary.successRate}%
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -75,8 +96,12 @@ export default function LawyerDashboard() {
               <div className="flex items-center gap-2">
                 <DollarSign className="h-4 w-4 md:h-5 md:w-5 text-yellow-500 shrink-0" />
                 <div className="min-w-0">
-                  <p className="text-xs md:text-sm text-muted-foreground truncate">Avg. Settlement</p>
-                  <p className="text-lg md:text-2xl font-bold">{analyticsSummary.averageSettlement}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground truncate">
+                    Avg. Settlement
+                  </p>
+                  <p className="text-lg md:text-2xl font-bold">
+                    {analyticsSummary.averageSettlement}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -86,8 +111,12 @@ export default function LawyerDashboard() {
               <div className="flex items-center gap-2">
                 <Award className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0" />
                 <div className="min-w-0">
-                  <p className="text-xs md:text-sm text-muted-foreground truncate">Recent Wins</p>
-                  <p className="text-lg md:text-2xl font-bold">{analyticsSummary.recentWins}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground truncate">
+                    Recent Wins
+                  </p>
+                  <p className="text-lg md:text-2xl font-bold">
+                    {analyticsSummary.recentWins}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -117,29 +146,47 @@ export default function LawyerDashboard() {
                               {getSeverityIcon(case_.severity)}
                               <h3 className="font-semibold">{case_.title}</h3>
                               {getStatusBadge(case_.status)}
-                              <Badge variant="outline" className="hidden sm:inline-flex">
+                              <Badge
+                                variant="outline"
+                                className="hidden sm:inline-flex"
+                              >
                                 Match: {case_.matchScore}%
                               </Badge>
                             </div>
-                            <p className="text-sm text-muted-foreground">{case_.description}</p>
+                            <p className="text-sm text-muted-foreground">
+                              {case_.description}
+                            </p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-sm text-muted-foreground">
                               <div className="flex items-center gap-1">
                                 <Clock className="h-4 w-4 shrink-0" />
-                                <span className="truncate">Submitted: {case_.dateSubmitted}</span>
+                                <span className="truncate">
+                                  Submitted: {case_.dateSubmitted}
+                                </span>
                               </div>
                               <div className="flex items-center gap-1">
                                 <MapPin className="h-4 w-4 shrink-0" />
-                                <span className="truncate">{case_.location}</span>
+                                <span className="truncate">
+                                  {case_.location}
+                                </span>
                               </div>
                               <div className="flex items-center gap-1">
-                                <DollarSign className="h-4 w-4 shrink-0" />
-                                <span className="truncate">{case_.potentialValue}</span>
+                                <User className="h-4 w-4 shrink-0" />
+                                <span className="truncate">
+                                  Patient Age: {case_.patientAge}
+                                </span>
                               </div>
                             </div>
                           </div>
                           <div className="flex gap-2 w-full md:w-auto">
-                            <Button className="flex-1 md:flex-none" variant="outline">Details</Button>
-                            <Button className="flex-1 md:flex-none">Review Case</Button>
+                            <Button
+                              className="flex-1 md:flex-none"
+                              variant="outline"
+                            >
+                              Details
+                            </Button>
+                            <Button className="flex-1 md:flex-none">
+                              Review Case
+                            </Button>
                           </div>
                         </div>
                       </Card>
@@ -166,11 +213,15 @@ export default function LawyerDashboard() {
                             <h3 className="font-semibold">{case_.title}</h3>
                             {getStatusBadge(case_.status)}
                           </div>
-                          <p className="text-sm text-muted-foreground">{case_.description}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {case_.description}
+                          </p>
                           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-sm text-muted-foreground">
                             <div className="flex items-center gap-1">
                               <Clock className="h-4 w-4 shrink-0" />
-                              <span className="truncate">Updated: {case_.lastUpdate}</span>
+                              <span className="truncate">
+                                Updated: {case_.lastUpdate}
+                              </span>
                             </div>
                             <div className="flex items-center gap-1">
                               <MapPin className="h-4 w-4 shrink-0" />
@@ -178,13 +229,22 @@ export default function LawyerDashboard() {
                             </div>
                             <div className="flex items-center gap-1">
                               <User className="h-4 w-4 shrink-0" />
-                              <span className="truncate">Patient Age: {case_.patientAge}</span>
+                              <span className="truncate">
+                                Patient Age: {case_.patientAge}
+                              </span>
                             </div>
                           </div>
                         </div>
                         <div className="flex gap-2 w-full md:w-auto">
-                          <Button className="flex-1 md:flex-none" variant="outline">View Details</Button>
-                          <Button className="flex-1 md:flex-none">Update Case</Button>
+                          <Button
+                            className="flex-1 md:flex-none"
+                            variant="outline"
+                          >
+                            View Details
+                          </Button>
+                          <Button className="flex-1 md:flex-none">
+                            Update Case
+                          </Button>
                         </div>
                       </div>
                     </Card>

@@ -8,7 +8,6 @@ export interface LawyerCase {
   lastUpdate: string;
   type: string;
   location: string;
-  potentialValue: string;
   matchScore: number;
   patientAge?: number;
   nextSteps?: string[];
@@ -35,7 +34,6 @@ export const newCases: LawyerCase[] = [
     lastUpdate: "2024-03-18",
     type: "Informed Consent & Surgical Error",
     location: "กรุงเทพมหานคร",
-    potentialValue: "฿500,000 - ฿750,000",
     matchScore: 95,
     patientAge: 35,
     documents: [
@@ -66,7 +64,6 @@ export const newCases: LawyerCase[] = [
     lastUpdate: "2024-03-17",
     type: "Diagnostic Error",
     location: "เชียงใหม่",
-    potentialValue: "฿1,000,000+",
     matchScore: 88,
     patientAge: 45,
   },
@@ -83,7 +80,6 @@ export const activeCases: LawyerCase[] = [
     lastUpdate: "2024-03-18",
     type: "Birth Injury",
     location: "ขอนแก่น",
-    potentialValue: "฿2,000,000+",
     matchScore: 92,
     patientAge: 0,
     nextSteps: [
