@@ -103,7 +103,7 @@ export default function VictimChat() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [analysis, setAnalysis] = useState<FlagAnalysis | null>(null);
+  const [showCaseOptions, setShowCaseOptions] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -115,7 +115,7 @@ export default function VictimChat() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, analysis]);
+  }, [messages, showCaseOptions]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -142,11 +142,7 @@ export default function VictimChat() {
       ]);
 
       if (userMessageCount === 2) {
-        const result = analyzeCaseStrength([
-          ...messages,
-          { role: "user", content: userMessage },
-        ]);
-        setAnalysis(result);
+        setShowCaseOptions(true);
       }
 
       setIsLoading(false);
@@ -154,11 +150,11 @@ export default function VictimChat() {
   };
 
   const handlePublishCase = () => {
-    router.push("/victim/case-submitted?status=public");
+    router.push("/victim/case-submitted?visibility=public");
   };
 
   const handlePrivateCase = () => {
-    router.push("/victim/case-submitted?status=private");
+    router.push("/victim/case-submitted?visibility=private");
   };
 
   const getFlagIcon = (flag: "red" | "yellow" | "green") => {
@@ -201,28 +197,26 @@ export default function VictimChat() {
                   <ChatMessage key={i} message={message} />
                 ))}
 
-                {analysis && (
-                  <Alert
-                    className={cn("mt-4 border-2", getFlagColor(analysis.flag))}
-                  >
-                    <div className="flex items-center gap-2">
-                      {getFlagIcon(analysis.flag)}
-                      <AlertTitle>{analysis.title}</AlertTitle>
-                    </div>
+                {showCaseOptions && (
+                  <Alert className="mt-4">
+                    <AlertTitle>
+                      คุณต้องการให้คดีของคุณเป็นสาธารณะหรือส่วนตัว?
+                    </AlertTitle>
                     <AlertDescription className="mt-2">
-                      {analysis.description}
+                      คดีสาธารณะจะช่วยให้ผู้อื่นที่ประสบปัญหาคล้ายกันได้เรียนรู้จากกรณีของคุณ
+                      ส่วนคดีส่วนตัวจะเห็นได้เฉพาะคุณและทนายความที่ได้รับอนุญาตเท่านั้น
                     </AlertDescription>
 
                     <div className="flex flex-col sm:flex-row gap-2 mt-4">
                       <Button onClick={handlePublishCase} className="flex-1">
-                        Make Case Public
+                        ทำให้เป็นคดีสาธารณะ
                       </Button>
                       <Button
                         onClick={handlePrivateCase}
                         variant="outline"
                         className="flex-1"
                       >
-                        Keep Case Private
+                        เก็บเป็นคดีส่วนตัว
                       </Button>
                     </div>
                   </Alert>
