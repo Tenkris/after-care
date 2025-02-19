@@ -86,32 +86,23 @@ export const messages: Message[] = [
   {
     id: "msg1",
     from: "Sarah Johnson, Esq.",
-    subject: "Case Review Update - Post-Surgery Complications",
+    subject: "การตรวจสอบคดี - ผ่าตัดไส้ติ่งโดยไม่ได้รับความยินยอม",
     content:
-      "I've reviewed your case details and would like to schedule a consultation to discuss further steps.",
+      "ดิฉันได้ตรวจสอบรายละเอียดคดีของคุณแล้ว และสนใจที่จะนัดปรึกษาเพื่อหารือเกี่ยวกับขั้นตอนต่อไป โดยเฉพาะประเด็นเรื่อง Informed Consent",
     date: "2024-03-18",
     read: false,
-    caseId: "vc1",
+    caseId: "nc1",
   },
-  {
-    id: "msg2",
-    from: "Medical Records Department",
-    subject: "Document Verification Complete",
-    content:
-      "Your submitted medical records have been verified and added to your case file.",
-    date: "2024-03-17",
-    read: true,
-    caseId: "vc1",
-  },
+
   {
     id: "msg3",
-    from: "David Miller, Esq.",
-    subject: "Interest in Your Case - Medication Error",
+    from: "สมศักดิ์ รักความยุติธรรม",
+    subject: "สนใจรับคดีผ่าตัดไส้ติ่ง",
     content:
-      "I specialize in medication error cases and would like to discuss your situation.",
+      "ผมมีประสบการณ์ด้านคดีละเมิดทางการแพทย์ โดยเฉพาะกรณี Informed Consent และสนใจที่จะรับคดีของคุณ",
     date: "2024-03-16",
     read: false,
-    caseId: "vc2",
+    caseId: "nc1",
   },
 ];
 
