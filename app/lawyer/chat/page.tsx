@@ -12,12 +12,10 @@ import { ChatMessage } from "@/components/chat/chat-message";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const INITIAL_MESSAGE = `สวัสดีค่ะ ฉันคือ AfterCare Assistant สำหรับทนายความ ฉันจะช่วยคุณรวบรวมข้อมูลเพิ่มเติมเกี่ยวกับคดีผ่าตัดไส้ติ่งนี้ค่ะ
-
 ข้อมูลเบื้องต้น:
 - ผู้ป่วยอายุ 35 ปี
 - ผ่าตัดไส้ติ่งโดยไม่ได้รับการยินยอม
 - เกิดภาวะแทรกซ้อนหลังผ่าตัด
-
 คุณต้องการทราบข้อมูลเพิ่มเติมในประเด็นใดคะ?`;
 
 const MOCK_RESPONSES = [
