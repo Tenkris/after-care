@@ -195,23 +195,23 @@ export default function VictimChat() {
                 {showCaseOptions && (
                   <Alert className="mt-4">
                     <AlertTitle>
-                      คุณต้องการให้คดีของคุณเป็นสาธารณะหรือส่วนตัว?
+                      คุณต้องการส่งข้อมูลเข้าสู่ระบบเพื่อดำเนินการต่อหรือไม่?
                     </AlertTitle>
                     <AlertDescription className="mt-2">
-                      คดีสาธารณะจะช่วยให้ผู้อื่นที่ประสบปัญหาคล้ายกันได้เรียนรู้จากกรณีของคุณ
-                      ส่วนคดีส่วนตัวจะเห็นได้เฉพาะคุณและทนายความที่ได้รับอนุญาตเท่านั้น
+                      การส่งข้อมูลเข้าระบบจะทำให้ทนายความสามารถเข้าถึงข้อมูลของคุณ
+                      รวมถึงมีกระบวนการที่ให้คุณได้รับความเป็นธรรมได้รวดเร็วขึ้น
                     </AlertDescription>
 
                     <div className="flex flex-col sm:flex-row gap-2 mt-4">
                       <Button onClick={handlePublishCase} className="flex-1">
-                        ทำให้เป็นคดีสาธารณะ
+                        ส่งข้อมูลเข้าระบบ
                       </Button>
                       <Button
                         onClick={handlePrivateCase}
                         variant="outline"
                         className="flex-1"
                       >
-                        เก็บเป็นคดีส่วนตัว
+                        ยังไม่ต้องการส่งข้อมูล
                       </Button>
                     </div>
                   </Alert>
