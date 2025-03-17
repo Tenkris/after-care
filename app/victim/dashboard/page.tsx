@@ -1,22 +1,30 @@
-'use client';
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { AlertTriangle, CheckCircle2, XCircle, Clock, MessageSquare, FileText, User } from 'lucide-react';
-import Link from 'next/link';
-import { myCases, messages, timelines } from './mock-data';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  AlertTriangle,
+  CheckCircle2,
+  XCircle,
+  Clock,
+  MessageSquare,
+  FileText,
+  User,
+} from "lucide-react";
+import Link from "next/link";
+import { myCases, messages, timelines } from "./mock-data";
 
 export default function VictimDashboard() {
   const getSeverityIcon = (severity: string) => {
     switch (severity) {
-      case 'red':
+      case "red":
         return <XCircle className="h-4 w-4 text-destructive" />;
-      case 'yellow':
+      case "yellow":
         return <AlertTriangle className="h-4 w-4 text-yellow-500" />;
-      case 'green':
+      case "green":
         return <CheckCircle2 className="h-4 w-4 text-green-500" />;
       default:
         return null;
@@ -25,15 +33,15 @@ export default function VictimDashboard() {
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case 'reviewing':
+      case "reviewing":
         return <Badge variant="secondary">Under Review</Badge>;
-      case 'pending':
+      case "pending":
         return <Badge variant="outline">Pending</Badge>;
-      case 'matched':
+      case "matched":
         return <Badge className="bg-green-500">Matched</Badge>;
-      case 'in_progress':
+      case "in_progress":
         return <Badge className="bg-blue-500">In Progress</Badge>;
-      case 'closed':
+      case "closed":
         return <Badge variant="outline">Closed</Badge>;
       default:
         return null;
@@ -46,7 +54,7 @@ export default function VictimDashboard() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 md:mb-8">
           <h1 className="text-xl md:text-2xl font-bold">My Dashboard</h1>
           <Button asChild>
-            <Link href="/victim/chat">
+            <Link href="/victim/onboarding">
               <MessageSquare className="mr-2 h-4 w-4" />
               Start New Case
             </Link>
@@ -76,7 +84,9 @@ export default function VictimDashboard() {
                             <h3 className="font-semibold">{case_.title}</h3>
                             {getStatusBadge(case_.status)}
                           </div>
-                          <p className="text-sm text-muted-foreground">{case_.description}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {case_.description}
+                          </p>
                           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                             <div className="flex items-center gap-1">
                               <Clock className="h-4 w-4" />
@@ -84,15 +94,22 @@ export default function VictimDashboard() {
                             </div>
                             <div className="flex items-center gap-1">
                               <User className="h-4 w-4" />
-                              {case_.interestedLawyers} lawyer{case_.interestedLawyers !== 1 ? 's' : ''} interested
+                              {case_.interestedLawyers} lawyer
+                              {case_.interestedLawyers !== 1 ? "s" : ""}{" "}
+                              interested
                             </div>
                           </div>
 
                           <div className="mt-4">
-                            <h4 className="text-sm font-semibold mb-2">Next Steps:</h4>
+                            <h4 className="text-sm font-semibold mb-2">
+                              Next Steps:
+                            </h4>
                             <ul className="space-y-1">
                               {case_.nextSteps.map((step, index) => (
-                                <li key={index} className="text-sm text-muted-foreground flex items-center gap-2">
+                                <li
+                                  key={index}
+                                  className="text-sm text-muted-foreground flex items-center gap-2"
+                                >
                                   <div className="h-1.5 w-1.5 rounded-full bg-primary" />
                                   {step}
                                 </li>
@@ -128,10 +145,14 @@ export default function VictimDashboard() {
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
                           <h3 className="font-semibold">{message.from}</h3>
-                          <span className="text-sm text-muted-foreground">{message.date}</span>
+                          <span className="text-sm text-muted-foreground">
+                            {message.date}
+                          </span>
                         </div>
                         <p className="text-sm font-medium">{message.subject}</p>
-                        <p className="text-sm text-muted-foreground">{message.content}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {message.content}
+                        </p>
                         {!message.read && (
                           <Badge variant="secondary">New</Badge>
                         )}
@@ -164,13 +185,24 @@ export default function VictimDashboard() {
                                 <FileText className="h-4 w-4 text-muted-foreground" />
                                 <div>
                                   <p className="font-medium">{doc.name}</p>
-                                  <p className="text-sm text-muted-foreground">{doc.type}</p>
+                                  <p className="text-sm text-muted-foreground">
+                                    {doc.type}
+                                  </p>
                                 </div>
                               </div>
                               <div className="flex items-center gap-2">
-                                <span className="text-sm text-muted-foreground">{doc.dateUploaded}</span>
-                                <Badge variant={doc.status === 'verified' ? 'default' : 'secondary'}>
-                                  {doc.status.charAt(0).toUpperCase() + doc.status.slice(1)}
+                                <span className="text-sm text-muted-foreground">
+                                  {doc.dateUploaded}
+                                </span>
+                                <Badge
+                                  variant={
+                                    doc.status === "verified"
+                                      ? "default"
+                                      : "secondary"
+                                  }
+                                >
+                                  {doc.status.charAt(0).toUpperCase() +
+                                    doc.status.slice(1)}
                                 </Badge>
                               </div>
                             </div>

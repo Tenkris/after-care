@@ -34,6 +34,12 @@ export default function VictimOnboarding() {
     }
   }, [facilityType, problemType]);
 
+  // Add new useEffect for scrolling
+  useEffect(() => {
+    // Scroll to top whenever step changes
+    window.scrollTo(0, 0);
+  }, [step]);
+
   const handleNext = () => {
     if (step < 4) {
       setStep(step + 1);
