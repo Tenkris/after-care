@@ -45,7 +45,9 @@ export default function Home() {
                 </li>
               </ul>
               <Button asChild className="w-full">
-                <Link href="/victim/chat">Start Your Case Evaluation</Link>
+                <Link href="/victim/onboarding">
+                  Start Your Case Evaluation
+                </Link>
               </Button>
             </CardContent>
           </Card>
