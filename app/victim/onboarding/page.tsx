@@ -72,7 +72,7 @@ export default function VictimOnboarding() {
             >
               {step > 1 ? <Check className="h-4 w-4 sm:h-5 sm:w-5" /> : "1"}
             </div>
-            <span className="text-xs sm:text-sm mt-2 text-center">
+            <span className="text-xs sm:text-sm mt-2 text-center font-normal">
               ประเภทสถานพยาบาล
             </span>
           </div>
@@ -89,7 +89,7 @@ export default function VictimOnboarding() {
             >
               {step > 2 ? <Check className="h-4 w-4 sm:h-5 sm:w-5" /> : "2"}
             </div>
-            <span className="text-xs sm:text-sm mt-2 text-center">
+            <span className="text-xs sm:text-sm mt-2 text-center font-normal">
               ประเภทปัญหาที่พบ
             </span>
           </div>
@@ -106,7 +106,7 @@ export default function VictimOnboarding() {
             >
               {step > 3 ? <Check className="h-4 w-4 sm:h-5 sm:w-5" /> : "3"}
             </div>
-            <span className="text-xs sm:text-sm mt-2 text-center">
+            <span className="text-xs sm:text-sm mt-2 text-center font-normal">
               ข้อมูลเพิ่มเติม
             </span>
           </div>
@@ -123,13 +123,15 @@ export default function VictimOnboarding() {
             >
               4
             </div>
-            <span className="text-xs sm:text-sm mt-2 text-center">ข้อตกลง</span>
+            <span className="text-xs sm:text-sm mt-2 text-center font-normal">
+              ข้อตกลง
+            </span>
           </div>
         </div>
 
         <Card className="w-full">
           <CardHeader className="px-4 sm:px-6 py-4 sm:py-6">
-            <CardTitle className="text-lg sm:text-xl text-center sm:text-left font-semibold">
+            <CardTitle className="text-xl sm:text-2xl text-center sm:text-left font-semibold">
               {step === 1 && "เลือกประเภทสถานพยาบาล"}
               {step === 2 && "เลือกประเภทปัญหาที่พบ"}
               {step === 3 && "ข้อมูลสำคัญสำหรับผู้เสียหาย"}
@@ -149,7 +151,7 @@ export default function VictimOnboarding() {
                   <RadioGroupItem value="clinic" id="clinic" />
                   <Label
                     htmlFor="clinic"
-                    className="cursor-pointer text-sm sm:text-base"
+                    className="cursor-pointer text-base sm:text-lg font-normal"
                   >
                     คลินิกเสริมความงาม
                   </Label>
@@ -158,7 +160,7 @@ export default function VictimOnboarding() {
                   <RadioGroupItem value="outpatient" id="outpatient" />
                   <Label
                     htmlFor="outpatient"
-                    className="cursor-pointer text-sm sm:text-base"
+                    className="cursor-pointer text-base sm:text-lg font-normal"
                   >
                     คนไข้นอก
                   </Label>
@@ -167,7 +169,7 @@ export default function VictimOnboarding() {
                   <RadioGroupItem value="inpatient" id="inpatient" />
                   <Label
                     htmlFor="inpatient"
-                    className="cursor-pointer text-sm sm:text-base"
+                    className="cursor-pointer text-base sm:text-lg font-normal"
                   >
                     คนไข้ใน
                   </Label>
@@ -185,7 +187,7 @@ export default function VictimOnboarding() {
                   <RadioGroupItem value="surgery" id="surgery" />
                   <Label
                     htmlFor="surgery"
-                    className="cursor-pointer text-sm sm:text-base"
+                    className="cursor-pointer text-base sm:text-lg font-normal"
                   >
                     การผ่าตัด
                   </Label>
@@ -194,7 +196,7 @@ export default function VictimOnboarding() {
                   <RadioGroupItem value="obstetrics" id="obstetrics" />
                   <Label
                     htmlFor="obstetrics"
-                    className="cursor-pointer text-sm sm:text-base"
+                    className="cursor-pointer text-base sm:text-lg font-normal"
                   >
                     สูตินารี
                   </Label>
@@ -203,7 +205,7 @@ export default function VictimOnboarding() {
                   <RadioGroupItem value="bloodTest" id="bloodTest" />
                   <Label
                     htmlFor="bloodTest"
-                    className="cursor-pointer text-sm sm:text-base"
+                    className="cursor-pointer text-base sm:text-lg font-normal"
                   >
                     เจาะเลือด
                   </Label>
@@ -212,7 +214,7 @@ export default function VictimOnboarding() {
                   <RadioGroupItem value="misdiagnosis" id="misdiagnosis" />
                   <Label
                     htmlFor="misdiagnosis"
-                    className="cursor-pointer text-sm sm:text-base"
+                    className="cursor-pointer text-base sm:text-lg font-normal"
                   >
                     วินิจฉัยผิด
                   </Label>
@@ -222,16 +224,16 @@ export default function VictimOnboarding() {
 
             {step === 3 && (
               <div className="space-y-4">
-                <p className="text-sm sm:text-base">
+                <p className="text-base sm:text-lg font-normal">
                   ขอบคุณที่ให้ข้อมูลเบื้องต้น
                   ข้อมูลที่คุณให้จะช่วยให้เราสามารถให้คำแนะนำที่เหมาะสมกับสถานการณ์ของคุณได้ดียิ่งขึ้น
                 </p>
 
                 <div className="bg-muted p-3 sm:p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-sm sm:text-base">
+                  <h3 className="font-semibold mb-2 text-lg sm:text-xl">
                     ขั้นตอนต่อไป
                   </h3>
-                  <ul className="list-disc pl-4 sm:pl-5 space-y-2 text-sm sm:text-base font-normal">
+                  <ul className="list-disc pl-4 sm:pl-5 space-y-2 text-base sm:text-lg font-normal">
                     <li>คุณจะได้พูดคุยกับ AI ผู้ช่วยของเรา</li>
                     <li>AI จะถามข้อมูลเพิ่มเติมเกี่ยวกับกรณีของคุณ</li>
                     <li>
@@ -246,24 +248,24 @@ export default function VictimOnboarding() {
                 </div>
 
                 <div className="bg-primary/5 p-3 sm:p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-sm sm:text-base">
+                  <h3 className="font-semibold mb-2 text-lg sm:text-xl">
                     เอกสารสำคัญสำหรับการดำเนินการคดีทางการแพทย์
                   </h3>
-                  <p className="text-xs sm:text-sm mb-3 font-normal">
+                  <p className="text-base sm:text-lg mb-3 font-normal">
                     เอกสารที่ทนายความต้องการจากผู้เสียหายเพื่อวิเคราะห์และดำเนินคดี:
                   </p>
 
                   <div className="space-y-3">
                     <div>
-                      <h4 className="text-sm font-semibold">
+                      <h4 className="text-base sm:text-lg font-semibold mb-2">
                         เอกสารสำคัญเบื้องต้น:
                       </h4>
-                      <ul className="list-disc pl-5 text-sm font-normal">
+                      <ul className="list-disc pl-5 text-base sm:text-lg font-normal">
                         <li>
                           <span className="font-medium">ใบเสร็จการรักษา</span>
                         </li>
                       </ul>
-                      <ul className="list-disc pl-5 text-sm font-normal">
+                      <ul className="list-disc pl-5 text-base sm:text-lg font-normal">
                         <li>
                           <span className="font-medium">
                             เอกสารรายงานเวชระเบียน
@@ -285,7 +287,7 @@ export default function VictimOnboarding() {
                           - รายการยาที่ได้รับ
                         </li>
                       </ul>
-                      <ul className="list-disc pl-5 text-sm font-normal">
+                      <ul className="list-disc pl-5 text-base sm:text-lg font-normal">
                         <li>
                           <span className="font-medium">เอกสารโฆษณา</span> -
                           คำโฆษณาต่างๆ อาจใช้เป็นหลักฐานประกอบได้
@@ -300,48 +302,54 @@ export default function VictimOnboarding() {
             {step === 4 && (
               <div className="space-y-4">
                 <div className="bg-primary/5 p-3 sm:p-4 rounded-lg">
-                  <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+                  <h3 className="font-semibold mb-3 sm:mb-4 text-lg sm:text-xl">
                     ข้อตกลงและเงื่อนไขการใช้บริการ
                   </h3>
-                  <div className="text-xs sm:text-sm space-y-3 sm:space-y-4">
+                  <div className="text-base sm:text-lg space-y-3 sm:space-y-4">
                     <div>
-                      <h4 className="font-semibold mb-2">1. การให้ข้อมูล</h4>
-                      <p className="text-muted-foreground font-normal">
+                      <h4 className="font-semibold mb-2 text-base sm:text-lg">
+                        1. การให้ข้อมูล
+                      </h4>
+                      <p className="text-muted-foreground font-normal text-base sm:text-lg">
                         ข้อมูลที่ท่านให้กับ AfterCare
                         จะถูกใช้เพื่อวัตถุประสงค์ในการให้คำปรึกษาและวิเคราะห์กรณีของท่านเท่านั้น
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-semibold mb-2">2. การรักษาความลับ</h4>
-                      <p className="text-muted-foreground font-normal">
+                      <h4 className="font-semibold mb-2 text-base sm:text-lg">
+                        2. การรักษาความลับ
+                      </h4>
+                      <p className="text-muted-foreground font-normal text-base sm:text-lg">
                         ข้อมูลของท่านจะถูกเก็บเป็นความลับตามมาตรฐานการรักษาความปลอดภัยของข้อมูล
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-semibold mb-2">
+                      <h4 className="font-semibold mb-2 text-base sm:text-lg">
                         3. ขอบเขตความรับผิดชอบ
                       </h4>
-                      <p className="text-muted-foreground font-normal">
+                      <p className="text-muted-foreground font-normal text-base sm:text-lg">
                         คำแนะนำที่ได้รับจาก AfterCare เป็นเพียงข้อมูลเบื้องต้น
                         ไม่ใช่คำปรึกษาทางกฎหมายอย่างเป็นทางการ
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-semibold mb-2">
+                      <h4 className="font-semibold mb-2 text-base sm:text-lg">
                         4. การแบ่งปันข้อมูล
                       </h4>
-                      <p className="text-muted-foreground font-normal">
+                      <p className="text-muted-foreground font-normal text-base sm:text-lg">
                         หากท่านเลือกส่งข้อมูลเข้าระบบ
                         ข้อมูลของท่านอาจถูกแบ่งปันกับทนายความที่เกี่ยวข้องเพื่อวัตถุประสงค์ในการให้คำปรึกษา
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-semibold mb-2">5. การยกเลิก</h4>
-                      <p className="text-muted-foreground font-normal">
+                      <h4 className="font-semibold mb-2 text-base sm:text-lg">
+                        5. การยกเลิก
+                      </h4>
+                      <p className="text-muted-foreground font-normal text-base sm:text-lg">
                         ท่านสามารถขอลบข้อมูลของท่านออกจากระบบได้ตลอดเวลา
                         โดยติดต่อผ่านช่องทางที่ระบุในเว็บไซต์
                       </p>
@@ -360,7 +368,7 @@ export default function VictimOnboarding() {
                   />
                   <Label
                     htmlFor="terms"
-                    className="text-xs sm:text-sm cursor-pointer font-normal"
+                    className="text-base sm:text-lg cursor-pointer font-normal"
                   >
                     ฉันได้อ่านและยอมรับข้อตกลงและเงื่อนไขการใช้บริการ
                   </Label>
@@ -373,9 +381,9 @@ export default function VictimOnboarding() {
                 <Button
                   variant="outline"
                   onClick={handleBack}
-                  className="text-sm sm:text-base px-3 sm:px-4 py-2"
+                  className="text-base sm:text-lg px-4 sm:px-6 py-2 sm:py-3"
                 >
-                  <ArrowLeft className="mr-2 h-4 w-4" /> ย้อนกลับ
+                  <ArrowLeft className="mr-2 h-5 w-5" /> ย้อนกลับ
                 </Button>
               ) : (
                 <div></div>
@@ -383,10 +391,10 @@ export default function VictimOnboarding() {
               <Button
                 onClick={handleNext}
                 disabled={!canProceed()}
-                className="text-sm sm:text-base px-3 sm:px-4 py-2"
+                className="text-base sm:text-lg px-4 sm:px-6 py-2 sm:py-3"
               >
                 {step < 4 ? "ถัดไป" : "เริ่มการสนทนา"}{" "}
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </CardContent>
