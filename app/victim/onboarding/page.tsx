@@ -129,7 +129,7 @@ export default function VictimOnboarding() {
 
         <Card className="w-full">
           <CardHeader className="px-4 sm:px-6 py-4 sm:py-6">
-            <CardTitle className="text-lg sm:text-xl text-center sm:text-left">
+            <CardTitle className="text-lg sm:text-xl text-center sm:text-left font-semibold">
               {step === 1 && "เลือกประเภทสถานพยาบาล"}
               {step === 2 && "เลือกประเภทปัญหาที่พบ"}
               {step === 3 && "ข้อมูลสำคัญสำหรับผู้เสียหาย"}
@@ -228,10 +228,10 @@ export default function VictimOnboarding() {
                 </p>
 
                 <div className="bg-muted p-3 sm:p-4 rounded-lg">
-                  <h3 className="font-medium mb-2 text-sm sm:text-base">
+                  <h3 className="font-semibold mb-2 text-sm sm:text-base">
                     ขั้นตอนต่อไป
                   </h3>
-                  <ul className="list-disc pl-4 sm:pl-5 space-y-2 text-sm sm:text-base">
+                  <ul className="list-disc pl-4 sm:pl-5 space-y-2 text-sm sm:text-base font-normal">
                     <li>คุณจะได้พูดคุยกับ AI ผู้ช่วยของเรา</li>
                     <li>AI จะถามข้อมูลเพิ่มเติมเกี่ยวกับกรณีของคุณ</li>
                     <li>
@@ -246,31 +246,24 @@ export default function VictimOnboarding() {
                 </div>
 
                 <div className="bg-primary/5 p-3 sm:p-4 rounded-lg">
-                  <h3 className="font-medium mb-2 text-sm sm:text-base">
+                  <h3 className="font-semibold mb-2 text-sm sm:text-base">
                     เอกสารสำคัญสำหรับการดำเนินการคดีทางการแพทย์
                   </h3>
-                  <p className="text-xs sm:text-sm mb-3">
+                  <p className="text-xs sm:text-sm mb-3 font-normal">
                     เอกสารที่ทนายความต้องการจากผู้เสียหายเพื่อวิเคราะห์และดำเนินคดี:
                   </p>
 
                   <div className="space-y-3">
                     <div>
-                      <h4 className="text-sm font-medium">
+                      <h4 className="text-sm font-semibold">
                         เอกสารสำคัญเบื้องต้น:
                       </h4>
-                      <ul className="list-disc pl-5 text-sm">
+                      <ul className="list-disc pl-5 text-sm font-normal">
                         <li>
-                          <span className="font-medium">ใบเสร็จการรักษา</span> -
-                          ใช้ยืนยันการเป็นคดีผู้บริโภค
+                          <span className="font-medium">ใบเสร็จการรักษา</span>
                         </li>
                       </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-medium">
-                        เอกสารสำหรับวิเคราะห์คดีและใช้แนบท้ายฟ้อง:
-                      </h4>
-                      <ul className="list-disc pl-5 text-sm">
+                      <ul className="list-disc pl-5 text-sm font-normal">
                         <li>
                           <span className="font-medium">
                             เอกสารรายงานเวชระเบียน
@@ -292,16 +285,10 @@ export default function VictimOnboarding() {
                           - รายการยาที่ได้รับ
                         </li>
                       </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-medium">
-                        กรณีคลินิกเสริมความงาม:
-                      </h4>
-                      <ul className="list-disc pl-5 text-sm">
+                      <ul className="list-disc pl-5 text-sm font-normal">
                         <li>
                           <span className="font-medium">เอกสารโฆษณา</span> -
-                          คำโฆษณาต่างๆ สามารถใช้เป็นหลักฐานประกอบได้
+                          คำโฆษณาต่างๆ อาจใช้เป็นหลักฐานประกอบได้
                         </li>
                       </ul>
                     </div>
@@ -313,46 +300,48 @@ export default function VictimOnboarding() {
             {step === 4 && (
               <div className="space-y-4">
                 <div className="bg-primary/5 p-3 sm:p-4 rounded-lg">
-                  <h3 className="font-medium mb-3 sm:mb-4 text-sm sm:text-base">
+                  <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
                     ข้อตกลงและเงื่อนไขการใช้บริการ
                   </h3>
                   <div className="text-xs sm:text-sm space-y-3 sm:space-y-4">
                     <div>
-                      <h4 className="font-medium mb-2">1. การให้ข้อมูล</h4>
-                      <p className="text-muted-foreground">
+                      <h4 className="font-semibold mb-2">1. การให้ข้อมูล</h4>
+                      <p className="text-muted-foreground font-normal">
                         ข้อมูลที่ท่านให้กับ AfterCare
                         จะถูกใช้เพื่อวัตถุประสงค์ในการให้คำปรึกษาและวิเคราะห์กรณีของท่านเท่านั้น
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-medium mb-2">2. การรักษาความลับ</h4>
-                      <p className="text-muted-foreground">
+                      <h4 className="font-semibold mb-2">2. การรักษาความลับ</h4>
+                      <p className="text-muted-foreground font-normal">
                         ข้อมูลของท่านจะถูกเก็บเป็นความลับตามมาตรฐานการรักษาความปลอดภัยของข้อมูล
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-medium mb-2">
+                      <h4 className="font-semibold mb-2">
                         3. ขอบเขตความรับผิดชอบ
                       </h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground font-normal">
                         คำแนะนำที่ได้รับจาก AfterCare เป็นเพียงข้อมูลเบื้องต้น
                         ไม่ใช่คำปรึกษาทางกฎหมายอย่างเป็นทางการ
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-medium mb-2">4. การแบ่งปันข้อมูล</h4>
-                      <p className="text-muted-foreground">
+                      <h4 className="font-semibold mb-2">
+                        4. การแบ่งปันข้อมูล
+                      </h4>
+                      <p className="text-muted-foreground font-normal">
                         หากท่านเลือกส่งข้อมูลเข้าระบบ
                         ข้อมูลของท่านอาจถูกแบ่งปันกับทนายความที่เกี่ยวข้องเพื่อวัตถุประสงค์ในการให้คำปรึกษา
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-medium mb-2">5. การยกเลิก</h4>
-                      <p className="text-muted-foreground">
+                      <h4 className="font-semibold mb-2">5. การยกเลิก</h4>
+                      <p className="text-muted-foreground font-normal">
                         ท่านสามารถขอลบข้อมูลของท่านออกจากระบบได้ตลอดเวลา
                         โดยติดต่อผ่านช่องทางที่ระบุในเว็บไซต์
                       </p>
@@ -371,7 +360,7 @@ export default function VictimOnboarding() {
                   />
                   <Label
                     htmlFor="terms"
-                    className="text-xs sm:text-sm cursor-pointer"
+                    className="text-xs sm:text-sm cursor-pointer font-normal"
                   >
                     ฉันได้อ่านและยอมรับข้อตกลงและเงื่อนไขการใช้บริการ
                   </Label>
