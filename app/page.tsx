@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageSquare, Scale, FileText, HeartPulse } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { SubscriptionPlans } from "@/components/layout/SubscriptionPlans";
 
 export default function Home() {
   return (
@@ -130,7 +131,17 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="border-t mt-12 md:mt-20">
+      {/* Subscription Plans */}
+      <div className="bg-muted/50 py-8 md:py-16 mt-12 md:mt-20">
+        <SubscriptionPlans showFAQ={false} />
+        <div className="text-center mt-8">
+          <Button asChild variant="outline" size="lg">
+            <Link href="/pricing">View All Plans</Link>
+          </Button>
+        </div>
+      </div>
+
+      <footer className="border-t mt-0">
         <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
           © 2024 AfterCare. All rights reserved.
         </div>

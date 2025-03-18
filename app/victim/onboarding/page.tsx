@@ -4,47 +4,26 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { ArrowRight, ArrowLeft, HeartPulse, Check } from "lucide-react";
-
-type FacilityType = "clinic" | "outpatient" | "inpatient" | null;
-type ProblemType =
-  | "surgery"
-  | "obstetrics"
-  | "bloodTest"
-  | "misdiagnosis"
-  | null;
 
 export default function VictimOnboarding() {
   const router = useRouter();
   const [step, setStep] = useState(1);
-  const [facilityType, setFacilityType] = useState<FacilityType>(null);
-  const [problemType, setProblemType] = useState<ProblemType>(null);
   const [acceptTerms, setAcceptTerms] = useState(false);
 
-  // Save data to localStorage when it changes
-  useEffect(() => {
-    if (facilityType) {
-      localStorage.setItem("victimFacilityType", facilityType);
-    }
-    if (problemType) {
-      localStorage.setItem("victimProblemType", problemType);
-    }
-  }, [facilityType, problemType]);
-
-  // Add new useEffect for scrolling
+  // Add useEffect for scrolling
   useEffect(() => {
     // Scroll to top whenever step changes
     window.scrollTo(0, 0);
   }, [step]);
 
   const handleNext = () => {
-    if (step < 4) {
+    if (step < 2) {
       setStep(step + 1);
     } else {
-      // Save all data and redirect to chat
+      // Redirect to chat
       router.push("/victim/chat");
     }
   };
@@ -56,9 +35,7 @@ export default function VictimOnboarding() {
   };
 
   const canProceed = () => {
-    if (step === 1) return facilityType !== null;
-    if (step === 2) return problemType !== null;
-    if (step === 4) return acceptTerms;
+    if (step === 2) return acceptTerms;
     return true;
   };
 
@@ -79,7 +56,7 @@ export default function VictimOnboarding() {
               {step > 1 ? <Check className="h-4 w-4 sm:h-5 sm:w-5" /> : "1"}
             </div>
             <span className="text-xs sm:text-sm mt-2 text-center font-normal">
-              ประเภทสถานพยาบาล
+              ข้อมูลเพิ่มเติม
             </span>
           </div>
           <div className="flex-1 flex items-center mx-2 sm:mx-4">
@@ -93,41 +70,7 @@ export default function VictimOnboarding() {
                 step >= 2 ? "bg-primary text-white" : "bg-muted"
               }`}
             >
-              {step > 2 ? <Check className="h-4 w-4 sm:h-5 sm:w-5" /> : "2"}
-            </div>
-            <span className="text-xs sm:text-sm mt-2 text-center font-normal">
-              ประเภทปัญหาที่พบ
-            </span>
-          </div>
-          <div className="flex-1 flex items-center mx-2 sm:mx-4">
-            <div
-              className={`h-1 w-full ${step > 2 ? "bg-primary" : "bg-muted"}`}
-            ></div>
-          </div>
-          <div className="flex flex-col items-center min-w-[80px] sm:min-w-0">
-            <div
-              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center ${
-                step >= 3 ? "bg-primary text-white" : "bg-muted"
-              }`}
-            >
-              {step > 3 ? <Check className="h-4 w-4 sm:h-5 sm:w-5" /> : "3"}
-            </div>
-            <span className="text-xs sm:text-sm mt-2 text-center font-normal">
-              ข้อมูลเพิ่มเติม
-            </span>
-          </div>
-          <div className="flex-1 flex items-center mx-2 sm:mx-4">
-            <div
-              className={`h-1 w-full ${step > 3 ? "bg-primary" : "bg-muted"}`}
-            ></div>
-          </div>
-          <div className="flex flex-col items-center min-w-[80px] sm:min-w-0">
-            <div
-              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center ${
-                step >= 4 ? "bg-primary text-white" : "bg-muted"
-              }`}
-            >
-              4
+              2
             </div>
             <span className="text-xs sm:text-sm mt-2 text-center font-normal">
               ข้อตกลง
@@ -138,101 +81,15 @@ export default function VictimOnboarding() {
         <Card className="w-full">
           <CardHeader className="px-4 sm:px-6 py-4 sm:py-6">
             <CardTitle className="text-xl sm:text-2xl text-center sm:text-left font-semibold">
-              {step === 1 && "เลือกประเภทสถานพยาบาล"}
-              {step === 2 && "เลือกประเภทปัญหาที่พบ"}
-              {step === 3 && "ข้อมูลสำคัญสำหรับผู้เสียหาย"}
-              {step === 4 && "ข้อตกลงและเงื่อนไขการใช้บริการ"}
+              {step === 1 && "ข้อมูลสำคัญสำหรับผู้เสียหาย"}
+              {step === 2 && "ข้อตกลงและเงื่อนไขการใช้บริการ"}
             </CardTitle>
           </CardHeader>
           <CardContent className="px-4 sm:px-6 py-4 sm:py-6">
             {step === 1 && (
-              <RadioGroup
-                value={facilityType || ""}
-                onValueChange={(value) =>
-                  setFacilityType(value as FacilityType)
-                }
-                className="space-y-3 sm:space-y-4"
-              >
-                <div className="flex items-center space-x-3">
-                  <RadioGroupItem value="clinic" id="clinic" />
-                  <Label
-                    htmlFor="clinic"
-                    className="cursor-pointer text-base sm:text-lg font-normal"
-                  >
-                    คลินิกเสริมความงาม
-                  </Label>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <RadioGroupItem value="outpatient" id="outpatient" />
-                  <Label
-                    htmlFor="outpatient"
-                    className="cursor-pointer text-base sm:text-lg font-normal"
-                  >
-                    คนไข้นอก
-                  </Label>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <RadioGroupItem value="inpatient" id="inpatient" />
-                  <Label
-                    htmlFor="inpatient"
-                    className="cursor-pointer text-base sm:text-lg font-normal"
-                  >
-                    คนไข้ใน
-                  </Label>
-                </div>
-              </RadioGroup>
-            )}
-
-            {step === 2 && (
-              <RadioGroup
-                value={problemType || ""}
-                onValueChange={(value) => setProblemType(value as ProblemType)}
-                className="space-y-3 sm:space-y-4"
-              >
-                <div className="flex items-center space-x-3">
-                  <RadioGroupItem value="surgery" id="surgery" />
-                  <Label
-                    htmlFor="surgery"
-                    className="cursor-pointer text-base sm:text-lg font-normal"
-                  >
-                    การผ่าตัด
-                  </Label>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <RadioGroupItem value="obstetrics" id="obstetrics" />
-                  <Label
-                    htmlFor="obstetrics"
-                    className="cursor-pointer text-base sm:text-lg font-normal"
-                  >
-                    สูตินารี
-                  </Label>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <RadioGroupItem value="bloodTest" id="bloodTest" />
-                  <Label
-                    htmlFor="bloodTest"
-                    className="cursor-pointer text-base sm:text-lg font-normal"
-                  >
-                    เจาะเลือด
-                  </Label>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <RadioGroupItem value="misdiagnosis" id="misdiagnosis" />
-                  <Label
-                    htmlFor="misdiagnosis"
-                    className="cursor-pointer text-base sm:text-lg font-normal"
-                  >
-                    วินิจฉัยผิด
-                  </Label>
-                </div>
-              </RadioGroup>
-            )}
-
-            {step === 3 && (
               <div className="space-y-4">
                 <p className="text-base sm:text-lg font-normal">
-                  ขอบคุณที่ให้ข้อมูลเบื้องต้น
-                  ข้อมูลที่คุณให้จะช่วยให้เราสามารถให้คำแนะนำที่เหมาะสมกับสถานการณ์ของคุณได้ดียิ่งขึ้น
+                  ข้อมูลต่อไปนี้จะช่วยให้เราสามารถให้คำแนะนำที่เหมาะสมกับสถานการณ์ของคุณได้ดียิ่งขึ้น
                 </p>
 
                 <div className="bg-muted p-3 sm:p-4 rounded-lg">
@@ -252,60 +109,10 @@ export default function VictimOnboarding() {
                     </li>
                   </ul>
                 </div>
-
-                <div className="bg-primary/5 p-3 sm:p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-lg sm:text-xl">
-                    เอกสารสำคัญสำหรับการดำเนินการคดีทางการแพทย์
-                  </h3>
-                  <p className="text-base sm:text-lg mb-3 font-normal">
-                    เอกสารที่ทนายความต้องการจากผู้เสียหายเพื่อวิเคราะห์และดำเนินคดี:
-                  </p>
-
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="text-base sm:text-lg font-semibold mb-2">
-                        เอกสารสำคัญเบื้องต้น:
-                      </h4>
-                      <ul className="list-disc pl-5 text-base sm:text-lg font-normal">
-                        <li>
-                          <span className="font-medium">ใบเสร็จการรักษา</span>
-                        </li>
-                      </ul>
-                      <ul className="list-disc pl-5 text-base sm:text-lg font-normal">
-                        <li>
-                          <span className="font-medium">
-                            เอกสารรายงานเวชระเบียน
-                          </span>{" "}
-                          - ประวัติการรักษาทั้งหมด
-                        </li>
-                        <li>
-                          <span className="font-medium">ใบรับรองแพทย์</span> -
-                          แสดงการวินิจฉัยและการรักษา
-                        </li>
-                        <li>
-                          <span className="font-medium">ใบรับรองผลการตรวจ</span>{" "}
-                          - ผลการตรวจทางห้องปฏิบัติการต่างๆ
-                        </li>
-                        <li>
-                          <span className="font-medium">
-                            เอกสารการสั่งจ่ายยา
-                          </span>{" "}
-                          - รายการยาที่ได้รับ
-                        </li>
-                      </ul>
-                      <ul className="list-disc pl-5 text-base sm:text-lg font-normal">
-                        <li>
-                          <span className="font-medium">เอกสารโฆษณา</span> -
-                          คำโฆษณาต่างๆ อาจใช้เป็นหลักฐานประกอบได้
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
               </div>
             )}
 
-            {step === 4 && (
+            {step === 2 && (
               <div className="space-y-4">
                 <div className="bg-primary/5 p-3 sm:p-4 rounded-lg">
                   <h3 className="font-semibold mb-3 sm:mb-4 text-lg sm:text-xl">
@@ -399,7 +206,7 @@ export default function VictimOnboarding() {
                 disabled={!canProceed()}
                 className="text-base sm:text-lg px-4 sm:px-6 py-2 sm:py-3"
               >
-                {step < 4 ? "ถัดไป" : "เริ่มการสนทนา"}{" "}
+                {step < 2 ? "ถัดไป" : "เริ่มการสนทนา"}{" "}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
