@@ -270,11 +270,11 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-medium">ที่อยู่</h3>
                   <p className="text-muted-foreground">
-                    123 อาคารไทยซัมมิท ชั้น 15
+                    คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
                     <br />
-                    ถนนสีลม แขวงสีลม
+                    254 ถนนพญาไท แขวงวังใหม่
                     <br />
-                    เขตบางรัก กรุงเทพฯ 10500
+                    เขตปทุมวัน กรุงเทพฯ 10330
                   </p>
                 </div>
               </div>
