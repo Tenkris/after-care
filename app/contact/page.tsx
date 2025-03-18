@@ -30,7 +30,7 @@ import {
 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { Separator } from "@/components/ui/separator";
-
+import Image from "next/image";
 export default function ContactPage() {
   const { toast } = useToast();
   const [formState, setFormState] = useState({
@@ -77,7 +77,15 @@ export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <HeartPulse className="h-12 w-12 text-primary mx-auto mb-4" />
+        <div className="flex justify-center mb-4">
+          <Image
+            src="/icon/icon.svg"
+            alt="AfterCare Logo"
+            width={400}
+            height={400}
+            className="w-[180px] h-auto sm:w-[220px] md:w-[260px] lg:w-[300px] xl:w-[340px]"
+          />
+        </div>
         <h1 className="text-3xl md:text-4xl font-bold mb-4">ติดต่อเรา</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           มีคำถามเกี่ยวกับบริการของเรา? ต้องการข้อมูลเพิ่มเติมเกี่ยวกับแพ็กเกจ?
