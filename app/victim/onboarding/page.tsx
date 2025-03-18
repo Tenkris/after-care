@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, ArrowLeft, HeartPulse, Check } from "lucide-react";
+import { ArrowRight, ArrowLeft, Check } from "lucide-react";
+import Image from "next/image";
 
 export default function VictimOnboarding() {
   const router = useRouter();
@@ -43,7 +44,14 @@ export default function VictimOnboarding() {
     <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12 min-h-screen flex flex-col items-center justify-center">
       <div className="w-full max-w-2xl">
         <div className="flex justify-center mb-6 sm:mb-8">
-          <HeartPulse className="h-10 w-10 sm:h-12 sm:w-12 text-primary" />
+          <Image
+            src="/icon/icon.svg"
+            alt="AfterCare Logo"
+            width={400}
+            height={400}
+            className="w-[180px] h-auto sm:w-[220px] md:w-[260px] lg:w-[300px] xl:w-[340px]"
+            priority
+          />
         </div>
 
         <div className="flex justify-between mb-6 sm:mb-8 overflow-x-auto pb-2 sm:pb-0 px-2 sm:px-0">

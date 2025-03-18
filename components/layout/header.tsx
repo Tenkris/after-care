@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
@@ -59,7 +59,12 @@ export function Header() {
               <SheetHeader>
                 <SheetTitle>
                   <div className="flex items-center gap-2">
-                    <HeartPulse className="h-5 w-5 text-primary" />
+                    <Image
+                      src="/icon/icon.svg"
+                      alt="AfterCare Logo"
+                      width={100}
+                      height={100}
+                    />
                     <span>AfterCare</span>
                   </div>
                 </SheetTitle>
@@ -91,8 +96,12 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <HeartPulse className="h-5 w-5 md:h-6 md:w-6 text-primary" />
-            <span className="font-bold text-sm md:text-base">AfterCare</span>
+            <Image
+              src="/icon/icon.svg"
+              alt="AfterCare Logo"
+              width={100}
+              height={100}
+            />
           </Link>
 
           {/* Desktop Navigation */}

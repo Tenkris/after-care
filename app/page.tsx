@@ -3,18 +3,22 @@ import { MessageSquare, Scale, FileText, HeartPulse } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SubscriptionPlans } from "@/components/layout/SubscriptionPlans";
-
+import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
           <div className="flex justify-center mb-4">
-            <HeartPulse className="h-12 w-12 md:h-16 md:w-16 text-primary" />
+            <Image
+              src="/icon/icon.svg"
+              alt="AfterCare Logo"
+              width={450}
+              height={450}
+              className="w-[250px] h-auto sm:w-[300px] md:w-[350px] lg:w-[400px] xl:w-[450px]"
+              priority
+            />
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 text-transparent bg-clip-text">
-            AfterCare
-          </h1>
           <p className="text-xl md:text-2xl font-semibold mb-2">
             Medical Malpractice Support
           </p>
