@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HeartPulse, Menu, Moon, Sun, UserCircle2 } from "lucide-react";
-import { useTheme } from "next-themes";
+import { HeartPulse, Menu, UserCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -13,7 +12,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 const navigation = [
   { name: "Home", href: "/" },
@@ -24,24 +22,6 @@ const navigation = [
 
 export function Header() {
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-
-  // Only render after client-side hydration
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Render the header with fallback values instead of returning null
-  const themeIcon = mounted ? (
-    theme === "light" ? (
-      <Moon className="h-5 w-5" />
-    ) : (
-      <Sun className="h-5 w-5" />
-    )
-  ) : (
-    <Moon className="h-5 w-5" />
-  );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -65,7 +45,6 @@ export function Header() {
                       width={100}
                       height={100}
                     />
-                    <span>AfterCare</span>
                   </div>
                 </SheetTitle>
               </SheetHeader>
@@ -123,19 +102,7 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-3 md:gap-4">
-          {/* Theme Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() =>
-              mounted && setTheme(theme === "light" ? "dark" : "light")
-            }
-          >
-            {themeIcon}
-            <span className="sr-only">Toggle theme</span>
-          </Button>
-
+        <div className="flex items-center">
           {/* Login Button */}
           <Button asChild variant="outline" className="gap-2">
             <Link href="/auth/login">
