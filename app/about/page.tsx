@@ -20,10 +20,10 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Revolutionizing Medical Malpractice Support
+            การปฏิวัติการสนับสนุนการฟ้องร้องทางการแพทย์
           </h1>
           <p className="text-lg text-muted-foreground mb-6">
-            A Chulalongkorn University Legal Tech Initiative
+            โครงการนวัตกรรมกฎหมายเทคโนโลยี จุฬาลงกรณ์มหาวิทยาลัย
           </p>
           <div className="flex justify-center gap-2">
             <Heart className="h-6 w-6 text-primary" />
@@ -40,23 +40,22 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-primary">
                   <Target className="h-5 w-5" />
-                  <h2 className="text-xl font-semibold">Our Mission</h2>
+                  <h2 className="text-xl font-semibold">พันธกิจของเรา</h2>
                 </div>
                 <p className="text-muted-foreground">
-                  To bridge the gap between medical malpractice victims and
-                  legal support through innovative technology, making justice
-                  more accessible and efficient.
+                  เพื่อเชื่อมต่อช่องว่างระหว่างผู้เสียหายจากการรักษาพยาบาลที่ผิดพลาดกับการสนับสนุนทางกฎหมาย
+                  ผ่านนวัตกรรมทางเทคโนโลยี
+                  เพื่อให้การเข้าถึงความยุติธรรมเป็นไปอย่างมีประสิทธิภาพและทั่วถึงมากขึ้น
                 </p>
               </div>
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-primary">
                   <Lightbulb className="h-5 w-5" />
-                  <h2 className="text-xl font-semibold">Our Vision</h2>
+                  <h2 className="text-xl font-semibold">วิสัยทัศน์ของเรา</h2>
                 </div>
                 <p className="text-muted-foreground">
-                  Creating a future where every medical malpractice victim has
-                  equal access to justice, supported by cutting-edge technology
-                  and expert guidance.
+                  สร้างอนาคตที่ทุกผู้เสียหายจากการรักษาพยาบาลที่ผิดพลาดมีสิทธิเข้าถึงความยุติธรรม
+                  รองรับด้วยเทคโนโลยีที่ทันสมัยและคำแนะนำที่เชี่ยวชาญ
                 </p>
               </div>
             </div>
@@ -70,8 +69,7 @@ export default function AboutPage() {
               Our Interdisciplinary Team
             </h2>
             <p className="text-muted-foreground">
-              Bringing together expertise from Chulalongkorn University&apos;s
-              top faculties
+              รวมความเชี่ยวชาญจากคณะการแพทย์ จุฬาลงกรณ์มหาวิทยาลัย
             </p>
           </div>
           <div className="relative w-full overflow-auto">
@@ -81,28 +79,28 @@ export default function AboutPage() {
                 className="min-w-[120px] md:min-w-[140px] gap-2"
               >
                 <Stethoscope className="h-4 w-4" />
-                Medical
+                การแพทย์
               </TabsTrigger>
               <TabsTrigger
                 value="legal"
                 className="min-w-[120px] md:min-w-[140px] gap-2"
               >
                 <Scale className="h-4 w-4" />
-                Legal
+                กฎหมาย
               </TabsTrigger>
               <TabsTrigger
                 value="tech"
                 className="min-w-[120px] md:min-w-[140px] gap-2"
               >
                 <Code className="h-4 w-4" />
-                Engineering
+                วิศวกรรม
               </TabsTrigger>
               <TabsTrigger
                 value="business"
                 className="min-w-[120px] md:min-w-[140px] gap-2"
               >
                 <LineChart className="h-4 w-4" />
-                Business
+                ธุรกิจ
               </TabsTrigger>
             </TabsList>
           </div>
@@ -113,46 +111,46 @@ export default function AboutPage() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold flex items-center gap-2">
                     <Stethoscope className="h-5 w-5 text-primary" />
-                    Medical Team
+                    ทีมการแพทย์
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Our medical team from Chulalongkorn Faculty of Medicine
-                    brings expertise in:
+                    ทีมการแพทย์จากคณะการแพทย์ จุฬาลงกรณ์มหาวิทยาลัย
+                    มีความเชี่ยวชาญใน
                   </p>
                   <ul className="grid gap-4 sm:grid-cols-2">
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Case Analysis</p>
+                        <p className="font-medium">การวิเคราะห์กรณี</p>
                         <p className="text-sm text-muted-foreground">
-                          Expert medical case review and evaluation
+                          การวิเคราะห์และประเมินกรณีทางการแพทย์โดยผู้เชี่ยวชาญ
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Standards of Care</p>
+                        <p className="font-medium">มาตรฐานการดูแล</p>
                         <p className="text-sm text-muted-foreground">
-                          Defining and evaluating medical standards
+                          การกำหนดและประเมินมาตรฐานทางการแพทย์
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Medical Documentation</p>
+                        <p className="font-medium">เอกสารทางการแพทย์</p>
                         <p className="text-sm text-muted-foreground">
-                          Professional record analysis
+                          การวิเคราะห์บันทึกทางการแพทย์อย่างมืออาชีพ
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Patient Advocacy</p>
+                        <p className="font-medium">การสนับสนุนผู้ป่วย</p>
                         <p className="text-sm text-muted-foreground">
-                          Supporting patient rights and care
+                          การสนับสนุนสิทธิและการดูแลผู้ป่วย
                         </p>
                       </div>
                     </li>
@@ -168,46 +166,46 @@ export default function AboutPage() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold flex items-center gap-2">
                     <Scale className="h-5 w-5 text-primary" />
-                    Legal Team
+                    ทีมกฎหมาย
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Our legal experts from Chulalongkorn Faculty of Law
-                    specialize in:
+                    ทีมกฎหมายของเราจากคณะนิติศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+                    มีความเชี่ยวชาญใน
                   </p>
                   <ul className="grid gap-4 sm:grid-cols-2">
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Medical Law</p>
+                        <p className="font-medium">กฎหมายการแพทย์</p>
                         <p className="text-sm text-muted-foreground">
-                          Specialized medical malpractice expertise
+                          ความเชี่ยวชาญด้านการฟ้องร้องทางการแพทย์
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Case Assessment</p>
+                        <p className="font-medium">การประเมินกรณี</p>
                         <p className="text-sm text-muted-foreground">
-                          Legal merit evaluation and strategy
+                          การประเมินและกลยุทธ์ทางกฎหมาย
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Patient Rights</p>
+                        <p className="font-medium">สิทธิผู้ป่วย</p>
                         <p className="text-sm text-muted-foreground">
-                          Healthcare law and patient protection
+                          กฎหมายด้านสุขภาพและการคุ้มครองผู้ป่วย
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Legal Innovation</p>
+                        <p className="font-medium">นวัตกรรมกฎหมาย</p>
                         <p className="text-sm text-muted-foreground">
-                          Modern legal tech solutions
+                          โซลูชันเทคโนโลยีทางกฎหมายสมัยใหม่
                         </p>
                       </div>
                     </li>
@@ -223,46 +221,46 @@ export default function AboutPage() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold flex items-center gap-2">
                     <Code className="h-5 w-5 text-primary" />
-                    Engineering Team
+                    ทีมวิศวกรรม
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Our engineering team from Chulalongkorn Faculty of
-                    Engineering develops:
+                    ทีมวิศวกรรมของเราจากคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+                    พัฒนา
                   </p>
                   <ul className="grid gap-4 sm:grid-cols-2">
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">AI Solutions</p>
+                        <p className="font-medium">โซลูชันปัญญาประดิษฐ์</p>
                         <p className="text-sm text-muted-foreground">
-                          Case analysis and matching algorithms
+                          การวิเคราะห์และจับคู่กรณีด้วยปัญญาประดิษฐ์
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Platform Development</p>
+                        <p className="font-medium">การพัฒนาแพลตฟอร์ม</p>
                         <p className="text-sm text-muted-foreground">
-                          Secure and efficient web solutions
+                          โซลูชันเว็บที่ปลอดภัยและมีประสิทธิภาพ
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Data Analytics</p>
+                        <p className="font-medium">การวิเคราะห์ข้อมูล</p>
                         <p className="text-sm text-muted-foreground">
-                          Advanced case pattern analysis
+                          การวิเคราะห์รูปแบบกรณีขั้นสูง
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">User Experience</p>
+                        <p className="font-medium">ประสบการณ์ผู้ใช้</p>
                         <p className="text-sm text-muted-foreground">
-                          Intuitive interface design
+                          การออกแบบส่วนต่อประสานที่ใช้งานง่าย
                         </p>
                       </div>
                     </li>
@@ -278,46 +276,48 @@ export default function AboutPage() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold flex items-center gap-2">
                     <LineChart className="h-5 w-5 text-primary" />
-                    Business Team
+                    ทีมธุรกิจ
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Our business team from Chulalongkorn Business School focuses
-                    on:
+                    ทีมธุรกิจของเราจากคณะพาณิชยศาสตร์และการบัญชี
+                    จุฬาลงกรณ์มหาวิทยาลัย มุ่งเน้นที่
                   </p>
                   <ul className="grid gap-4 sm:grid-cols-2">
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Strategy Development</p>
+                        <p className="font-medium">การพัฒนากลยุทธ์</p>
                         <p className="text-sm text-muted-foreground">
-                          Sustainable business model innovation
+                          นวัตกรรมโมเดลธุรกิจที่ยั่งยืน
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Market Analysis</p>
+                        <p className="font-medium">การวิเคราะห์ตลาด</p>
                         <p className="text-sm text-muted-foreground">
-                          Healthcare legal tech landscape
+                          การวิเคราะห์ตลาดเทคโนโลยีทางกฎหมายด้านสุขภาพ
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Stakeholder Relations</p>
+                        <p className="font-medium">
+                          ความสัมพันธ์ผู้มีส่วนได้ส่วนเสีย
+                        </p>
                         <p className="text-sm text-muted-foreground">
-                          Partnership development
+                          การพัฒนาความร่วมมือ
                         </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="h-2 w-2 mt-2 rounded-full bg-primary shrink-0" />
                       <div>
-                        <p className="font-medium">Social Impact</p>
+                        <p className="font-medium">ผลกระทบทางสังคม</p>
                         <p className="text-sm text-muted-foreground">
-                          Measuring and maximizing social value
+                          การวัดและเพิ่มคุณค่าทางสังคม
                         </p>
                       </div>
                     </li>
@@ -335,36 +335,36 @@ export default function AboutPage() {
             <Card>
               <CardContent className="pt-6">
                 <Users className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Accessibility</h3>
+                <h3 className="font-semibold mb-2">การเข้าถึง</h3>
                 <p className="text-sm text-muted-foreground">
-                  Making legal support available to all
+                  การทำให้การสนับสนุนทางกฎหมายเข้าถึงได้สำหรับทุกคน
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6">
                 <Scale className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Justice</h3>
+                <h3 className="font-semibold mb-2">ความยุติธรรม</h3>
                 <p className="text-sm text-muted-foreground">
-                  Ensuring fair treatment for victims
+                  การรับรองการปฏิบัติที่เป็นธรรมสำหรับผู้เสียหาย
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6">
                 <Code className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Innovation</h3>
+                <h3 className="font-semibold mb-2">นวัตกรรม</h3>
                 <p className="text-sm text-muted-foreground">
-                  Leveraging technology for better outcomes
+                  การใช้เทคโนโลยีเพื่อผลลัพธ์ที่ดีขึ้น
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6">
                 <Heart className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Empathy</h3>
+                <h3 className="font-semibold mb-2">ความเห็นอกเห็นใจ</h3>
                 <p className="text-sm text-muted-foreground">
-                  Understanding and supporting patients
+                  การเข้าใจและสนับสนุนผู้ป่วย
                 </p>
               </CardContent>
             </Card>

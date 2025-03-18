@@ -19,8 +19,7 @@ export default function Home() {
             Medical Malpractice Support
           </p>
           <p className="text-base md:text-lg text-muted-foreground mb-8">
-            Supporting patients with AI-powered case analysis and expert legal
-            guidance
+            สนับสนุนผู้ป่วยด้วยการวิเคราะห์กรณีด้วยปัญญาประดิษฐ์และคำแนะนำจากผู้เชี่ยวชาญทางกฎหมาย
           </p>
         </div>
 
@@ -36,13 +35,13 @@ export default function Home() {
             <CardContent>
               <ul className="space-y-2 mb-6 text-muted-foreground text-sm md:text-base">
                 <li className="flex items-center gap-2">
-                  • AI-powered case evaluation
+                  • การประเมินกรณีด้วย AI
                 </li>
                 <li className="flex items-center gap-2">
-                  • Connect with specialized lawyers
+                  • เชื่อมต่อกับทนายความผู้เชี่ยวชาญ
                 </li>
                 <li className="flex items-center gap-2">
-                  • Free initial consultation
+                  • ปรึกษาเบื้องต้นฟรี
                 </li>
               </ul>
               <Button asChild className="w-full">
@@ -64,13 +63,13 @@ export default function Home() {
             <CardContent>
               <ul className="space-y-2 mb-6 text-muted-foreground text-sm md:text-base">
                 <li className="flex items-center gap-2">
-                  • Pre-screened cases
+                  • กรณีที่ผ่านการคัดกรอง
                 </li>
                 <li className="flex items-center gap-2">
-                  • Automated case matching
+                  • การจับคู่กรณีอัตโนมัติ
                 </li>
                 <li className="flex items-center gap-2">
-                  • Detailed case analytics
+                  • การวิเคราะห์กรณีโดยละเอียด
                 </li>
               </ul>
               <Button asChild className="w-full">
@@ -82,7 +81,7 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl md:text-2xl font-semibold mb-6 text-center">
-            How AfterCare Works
+            AfterCare ทำงานอย่างไร
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Card>
@@ -94,8 +93,7 @@ export default function Home() {
                   Share Your Experience
                 </h3>
                 <p className="text-sm text-muted-foreground text-center">
-                  Tell us about your medical experience in a safe, confidential
-                  environment
+                  เล่าประสบการณ์ทางการแพทย์ของคุณในสภาพแวดล้อมที่ปลอดภัยและเป็นความลับ
                 </p>
               </CardContent>
             </Card>
@@ -109,7 +107,7 @@ export default function Home() {
                   Get Expert Analysis
                 </h3>
                 <p className="text-sm text-muted-foreground text-center">
-                  Receive AI-powered analysis of your case&apos;s potential
+                  รับการวิเคราะห์ case ของคุณด้วย AI ที่มีความเชี่ยวชาญ
                 </p>
               </CardContent>
             </Card>
@@ -123,7 +121,7 @@ export default function Home() {
                   Connect with Lawyers
                 </h3>
                 <p className="text-sm text-muted-foreground text-center">
-                  Match with experienced medical malpractice attorneys
+                  จับคู่กับทนายความผู้เชี่ยวชาญด้านการฟ้องร้องทางการแพทย์
                 </p>
               </CardContent>
             </Card>
