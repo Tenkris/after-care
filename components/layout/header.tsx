@@ -40,7 +40,7 @@ export function Header() {
                 <SheetTitle>
                   <div className="flex items-center gap-2">
                     <Image
-                      src="/icon/icon.svg"
+                      src="/icon/icon.webp"
                       alt="AfterCare Logo"
                       width={100}
                       height={100}
@@ -76,7 +76,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <Image
-              src="/icon/icon.svg"
+              src="/icon/icon.webp"
               alt="AfterCare Logo"
               width={100}
               height={100}

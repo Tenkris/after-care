@@ -45,7 +45,7 @@ export default function VictimOnboarding() {
       <div className="w-full max-w-2xl">
         <div className="flex justify-center mb-6 sm:mb-8">
           <Image
-            src="/icon/icon.svg"
+            src="/icon/icon.webp"
             alt="AfterCare Logo"
             width={400}
             height={400}

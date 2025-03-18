@@ -11,7 +11,7 @@ export default function Home() {
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
           <div className="flex justify-center mb-4">
             <Image
-              src="/icon/icon.svg"
+              src="/icon/icon.webp"
               alt="AfterCare Logo"
               width={450}
               height={450}

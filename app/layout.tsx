@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Supporting patients with medical malpractice cases through AI-powered analysis and legal expertise",
   icons: {
-    icon: "/icon/logo-icon.svg",
+    icon: "/icon/logo-icon.webp",
   },
 };
 
