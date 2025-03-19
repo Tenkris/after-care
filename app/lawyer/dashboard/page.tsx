@@ -170,9 +170,11 @@ export default function LawyerDashboard() {
                             >
                               Details
                             </Button>
-                            <Button className="flex-1 md:flex-none">
-                              Review Case
-                            </Button>
+                            <Link href={`/lawyer/cases/${case_.id}`}>
+                              <Button className="flex-1 md:flex-none">
+                                Review Case
+                              </Button>
+                            </Link>
                           </div>
                         </div>
                       </Card>
