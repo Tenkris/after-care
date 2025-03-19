@@ -23,26 +23,27 @@ interface Document {
 export const myCases: VictimCase[] = [
   {
     id: "vc1",
-    title: "ผ่าตัดไส้ติ่งโดยไม่ได้รับการยินยอม",
+    title: "การเจาะชิ้นเนื้อที่ตับโดยไม่ได้แจ้งข้อมูลครบถ้วน",
     description:
-      "แพทย์ทำการผ่าตัดไส้ติ่งโดยไม่ได้แจ้งและขอความยินยอมก่อน ส่งผลให้เกิดภาวะแทรกซ้อนหลังผ่าตัด",
+      "คุณพ่อมีก้อนที่ชายโครงและในท้อง แพทย์ทำการเจาะชิ้นเนื้อที่ตับโดยไม่ได้แจ้งข้อมูลและความเสี่ยงให้ครบถ้วน ส่งผลให้เกิดภาวะเลือดออกรุนแรงจนเสียชีวิต",
     status: "reviewing",
     severity: "red",
     dateSubmitted: "2024-03-15",
     lastUpdate: "2024-03-18",
-    type: "Informed Consent & Surgical Error",
+    type: "Informed Consent & Medical Negligence",
     interestedLawyers: 2,
     nextSteps: [
       "รวบรวมเวชระเบียน (Medical Records)",
       "เตรียมใบรายงานการผ่าตัด (Operation Note)",
-      "รวบรวมผลตรวจทางห้องปฏิบัติการ",
+      "รวบรวมผลตรวจทางห้องปฏิบัติการและภาพถ่ายรังสี",
       "จัดเตรียมบันทึกการพยาบาล",
       "รวบรวมใบเสร็จค่ารักษาพยาบาล",
+      "รวบรวมใบเซ็นยินยอมการรักษา",
     ],
     documents: [
       {
         id: "doc1",
-        name: "ใบรายงานการผ่าตัด",
+        name: "ใบรายงานการผ่าตัดและเจาะชิ้นเนื้อ",
         type: "Operation Note",
         dateUploaded: "2024-03-15",
         status: "verified",
@@ -56,14 +57,14 @@ export const myCases: VictimCase[] = [
       },
       {
         id: "doc3",
-        name: "ผลตรวจทางห้องปฏิบัติการ",
+        name: "ผลตรวจทางห้องปฏิบัติการและภาพถ่ายรังสี",
         type: "Lab Results",
         dateUploaded: "2024-03-16",
         status: "pending",
       },
       {
         id: "doc4",
-        name: "บันทึกการพยาบาล",
+        name: "บันทึกการพยาบาล ICU",
         type: "Nursing Record",
         dateUploaded: "2024-03-17",
         status: "pending",
@@ -86,9 +87,9 @@ export const messages: Message[] = [
   {
     id: "msg1",
     from: "Sarah Johnson, Esq.",
-    subject: "การตรวจสอบคดี - ผ่าตัดไส้ติ่งโดยไม่ได้รับความยินยอม",
+    subject: "การตรวจสอบคดี - การเจาะชิ้นเนื้อที่ตับโดยไม่ได้แจ้งข้อมูลครบถ้วน",
     content:
-      "ดิฉันได้ตรวจสอบรายละเอียดคดีของคุณแล้ว และสนใจที่จะนัดปรึกษาเพื่อหารือเกี่ยวกับขั้นตอนต่อไป โดยเฉพาะประเด็นเรื่อง Informed Consent",
+      "ดิฉันได้ตรวจสอบรายละเอียดคดีของคุณแล้ว และสนใจที่จะนัดปรึกษาเพื่อหารือเกี่ยวกับขั้นตอนต่อไป โดยเฉพาะประเด็นเรื่อง Informed Consent และการรักษาที่ผิดพลาด",
     date: "2024-03-18",
     read: false,
     caseId: "nc1",
@@ -97,9 +98,9 @@ export const messages: Message[] = [
   {
     id: "msg3",
     from: "สมศักดิ์ รักความยุติธรรม",
-    subject: "สนใจรับคดีผ่าตัดไส้ติ่ง",
+    subject: "สนใจรับคดีการเจาะชิ้นเนื้อที่ตับ",
     content:
-      "ผมมีประสบการณ์ด้านคดีละเมิดทางการแพทย์ โดยเฉพาะกรณี Informed Consent และสนใจที่จะรับคดีของคุณ",
+      "ผมมีประสบการณ์ด้านคดีละเมิดทางการแพทย์ โดยเฉพาะกรณี Medical Negligence และสนใจที่จะรับคดีของคุณ",
     date: "2024-03-16",
     read: false,
     caseId: "nc1",
@@ -126,23 +127,23 @@ export const timelines: Timeline[] = [
       {
         id: "ev1",
         date: "2024-03-15",
-        title: "Case Submitted",
+        title: "ส่งเรื่องเข้าระบบ",
         description:
-          "Initial case details and documentation submitted for review.",
+          "ส่งรายละเอียดคดีและเอกสารเบื้องต้นเข้าสู่ระบบเพื่อการตรวจสอบ",
         type: "submission",
       },
       {
         id: "ev2",
         date: "2024-03-16",
-        title: "Documents Uploaded",
-        description: "Post-operative photos added to case file.",
+        title: "อัปโหลดเอกสาร",
+        description: "เพิ่มเอกสารทางการแพทย์และภาพถ่ายรังสีเข้าสู่ระบบ",
         type: "document",
       },
       {
         id: "ev3",
         date: "2024-03-18",
-        title: "Lawyer Interest",
-        description: "Three lawyers have expressed interest in your case.",
+        title: "ทนายความสนใจ",
+        description: "มีทนายความสองท่านแสดงความสนใจในการรับคดีของคุณ",
         type: "lawyer",
       },
     ],
