@@ -23,7 +23,8 @@ export default function Home() {
             Medical Malpractice Support
           </p>
           <p className="text-base md:text-lg text-muted-foreground mb-8">
-            สนับสนุนผู้ป่วยด้วยการวิเคราะห์กรณีด้วยปัญญาประดิษฐ์และคำแนะนำจากผู้เชี่ยวชาญทางกฎหมาย
+            สนับสนุนผู้ป่วยด้วยการวิเคราะห์ case
+            ด้วยปัญญาประดิษฐ์และคำแนะนำจากผู้เชี่ยวชาญทางกฎหมาย
           </p>
         </div>
 
@@ -39,7 +40,7 @@ export default function Home() {
             <CardContent>
               <ul className="space-y-2 mb-6 text-muted-foreground text-sm md:text-base">
                 <li className="flex items-center gap-2">
-                  • การประเมินกรณีด้วย AI
+                  • การประเมิน case ด้วย AI
                 </li>
                 <li className="flex items-center gap-2">
                   • เชื่อมต่อกับทนายความผู้เชี่ยวชาญ
@@ -70,10 +71,10 @@ export default function Home() {
                   • กรณีที่ผ่านการคัดกรอง
                 </li>
                 <li className="flex items-center gap-2">
-                  • การจับคู่กรณีอัตโนมัติ
+                  • การจับคู่ case อัตโนมัติ
                 </li>
                 <li className="flex items-center gap-2">
-                  • การวิเคราะห์กรณีโดยละเอียด
+                  • การวิเคราะห์ case โดยละเอียด
                 </li>
               </ul>
               <Button asChild className="w-full">
