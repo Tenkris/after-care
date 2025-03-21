@@ -172,6 +172,10 @@ export default function VictimChat() {
 
   const callClaudeAPI = async (messages: Message[]): Promise<string> => {
     try {
+      // Add a longer timeout for the fetch request (30 seconds)
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
       const response = await fetch("/api/claude", {
         method: "POST",
         headers: {
@@ -184,9 +188,19 @@ export default function VictimChat() {
           temperature: 0.7,
           max_tokens: 1024,
         } as ClaudeRequest),
+        signal: controller.signal,
       });
 
+      // Clear the timeout
+      clearTimeout(timeoutId);
+
       if (!response.ok) {
+        const errorData = await response.json();
+        console.error(`API response error: ${response.status}`, errorData);
+
+        if (response.status === 504 || response.status === 503) {
+          return "ขออภัยค่ะ เนื่องจากเวลาในการประมวลผลเกินกำหนด โปรดลองใหม่อีกครั้งหรือลดความยาวข้อความลง";
+        }
         throw new Error(`API request failed with status ${response.status}`);
       }
 
@@ -194,6 +208,11 @@ export default function VictimChat() {
       return data.content;
     } catch (error) {
       console.error("Error calling Claude API:", error);
+
+      if (error instanceof Error && error.name === "AbortError") {
+        return "ขออภัยค่ะ การเชื่อมต่อใช้เวลานานเกินไป โปรดลองใหม่อีกครั้ง";
+      }
+
       return "ขออภัยค่ะ เกิดข้อผิดพลาดในการเชื่อมต่อกับระบบ กรุณาลองใหม่อีกครั้ง";
     }
   };
