@@ -319,12 +319,12 @@ export default function VictimChat() {
                 AfterCare Assistant
               </CardTitle>
               <Button
-                variant="ghost"
+                variant="outline"
                 size="sm"
-                onClick={handleClearChat}
+                onClick={() => setShowCaseOptions(true)}
                 className="text-xs"
               >
-                ล้างประวัติการสนทนา
+                ส่งข้อมูลเข้าระบบ
               </Button>
             </div>
           </CardHeader>
@@ -337,8 +337,8 @@ export default function VictimChat() {
                 ))}
 
                 {showCaseOptions && (
-                  <Alert className="mt-4">
-                    <AlertTitle>
+                  <Alert className="mt-4 border-primary/20 bg-primary/5">
+                    <AlertTitle className="text-lg">
                       คุณต้องการส่งข้อมูลเข้าสู่ระบบเพื่อดำเนินการต่อหรือไม่?
                     </AlertTitle>
                     <AlertDescription className="mt-2">
@@ -351,7 +351,7 @@ export default function VictimChat() {
                         ส่งข้อมูลเข้าระบบ
                       </Button>
                       <Button
-                        onClick={handlePrivateCase}
+                        onClick={() => setShowCaseOptions(false)}
                         variant="outline"
                         className="flex-1"
                       >
