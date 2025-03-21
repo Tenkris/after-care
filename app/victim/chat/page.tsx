@@ -160,28 +160,6 @@ export default function VictimChat() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Load chat history from localStorage on component mount
-  useEffect(() => {
-    const savedMessages = localStorage.getItem("chatHistory");
-    if (savedMessages) {
-      try {
-        const parsedMessages = JSON.parse(savedMessages);
-        if (Array.isArray(parsedMessages) && parsedMessages.length > 0) {
-          setMessages(parsedMessages);
-        }
-      } catch (error) {
-        console.error("Error parsing saved messages:", error);
-      }
-    }
-  }, []);
-
-  // Save chat history to localStorage when messages change
-  useEffect(() => {
-    if (messages.length > 0) {
-      localStorage.setItem("chatHistory", JSON.stringify(messages));
-    }
-  }, [messages]);
-
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
@@ -282,7 +260,6 @@ export default function VictimChat() {
           content: INITIAL_MESSAGE,
         },
       ]);
-      localStorage.removeItem("chatHistory");
     }
   };
 
