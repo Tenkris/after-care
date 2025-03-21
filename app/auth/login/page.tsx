@@ -22,12 +22,13 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [activeTab, setActiveTab] = useState(defaultType);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock login - just redirect based on type
-    if (defaultType === "victim") {
-      router.push("/victim/chat");
+    // Mock login - redirect based on active tab
+    if (activeTab === "victim") {
+      router.push("/victim/onboarding");
     } else {
       router.push("/lawyer/dashboard");
     }
@@ -48,7 +49,11 @@ export default function LoginPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Tabs defaultValue={defaultType} className="space-y-4">
+          <Tabs
+            defaultValue={defaultType}
+            className="space-y-4"
+            onValueChange={(value) => setActiveTab(value)}
+          >
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="victim" className="gap-2">
                 <HeartPulse className="h-4 w-4" />
